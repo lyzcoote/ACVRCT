@@ -58,6 +58,7 @@ def displayWorldNames():
 def displayInstanceTypes():
     instance_list = ["Public World", "Friends World", "Hidden World", "Private World"]
     n = 1
+    print("[!] WARNING! Only public worlds are supported at this time. \n The other type of worlds will load after some minutes.")
     for world in instance_list:
         print("{} - {}".format(n, world))
         n += 1
