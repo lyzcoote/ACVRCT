@@ -62,6 +62,14 @@ def displayInstanceTypes():
         print("{} - {}".format(n, world))
         n += 1
 
+
+def displayWorldRegions():
+    region_list = ["US West", "US East", "Europe", "Japan"]
+    n = 1
+    for world in region_list:
+        print("{} - {}".format(n, world))
+        n += 1
+
 """
 Create a array of all the world instances
 """
@@ -77,6 +85,19 @@ def world_instances(instanceID):
 
     }
     return world_instances[instanceID - 1]
+
+
+def world_region(regionID):
+    
+
+    world_region = {
+        0: "us", #US West
+        1: "use", #US East
+        2: "eu", #Europe
+        3: "jp" #Japan
+
+    }
+    return world_region[regionID - 1]
     
     
 """
@@ -107,25 +128,32 @@ if __name__ == "__main__":
     print("System Architecture: {}".format(os_platform()) + "\nSystem OS: {}".format(get_arch_os()))
     log_manager("Log Manager started!", "success")
     
+    userID = "usr_ea452a01-b107-41a5-a7ec-ce419542772d"
+
     print(displayWorldNames())
-    print(worldIDs(int(input("Enter a world ID: "))))
     print("\n")
+
     print(displayInstanceTypes())
-    print(world_instances(int(input("Enter a world instance ID: "))))
     print("\n")
-    log_manager("Log Manager ended!", "success")
+
+    print(displayWorldRegions())
     print("\n")
+
+    """print(world_instances(int(input("Enter a world instance ID: "))))"""
+
     """Create a url with the world ID and world instance ID given by the user """
-    worldURL = "vrchat://launch?id={}:{}".format(worldIDs(int(input("Enter a world ID: "))), random.randint(300, 1000))
-    """print("URL: vrchat://launch?id{}/{}".format(worldIDs(int(input("Enter a world ID: "))), random.randint(300, 1000)))
-    print("URL: vrchat://launch?id{}".format(worldIDs(int(input("Enter a world ID: ")))))"""
+    worldURL = "vrchat://launch?id={}:{}~{}({})~region({})".format(worldIDs(int(input("Enter a world ID: "))),
+     random.randint(300, 1000),
+      world_instances(int(input("Enter a world instance ID: "))),
+      userID,
+      world_region(int(input("Enter a world region ID: "))))
     print("\n")
     print(worldURL)
     """Open the url in the default browser """
     import os
     os.system("start \"\" \"{}\"".format(worldURL))
 
-    """Output a random int from 1 to 1000"""
+    log_manager("Log Manager ended!", "success")
     
     
 
