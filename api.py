@@ -16,7 +16,7 @@ class InvalidResponse(Exception):
 """
 headers = CaseInsensitiveDict()
 headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36"
-#authToken = "authcookie_95026c0c-0c80-4cea-ac49-a05de84bce33" #result.json()['token']
+
 
 
 
@@ -62,14 +62,17 @@ def getAPIKey():
         print("[!] Error: " + str(e))
         return None
         
-        
+
+apiKey = getAPIKey()
+
+
 def getUserInfo(apiKey, username):
     """
         Get user info from VRChat APIs
     """
-    if(doesUserExists(username, apiKey)):
+    if(doesUserExists(username)):
         print("\n[i] Getting user info...")
-        headers["Cookie"] = "apiKey=" + apiKey +str(";")+ "auth=" + getAuthCookie(getAPIKey())
+        headers["Cookie"] = "apiKey=" + apiKey +str(";")+ "auth=" + getAuthCookie(apiKey)
         url = 'https://api.vrchat.cloud/api/1/users/{}/name'.format(username)
         try:
             result = requests.get(url, headers=headers)
@@ -103,9 +106,9 @@ def getUserID(apiKey, username):
     """
         Get user info from VRChat APIs
     """
-    if(doesUserExists(username, apiKey)):
+    if(doesUserExists(username)):
         print("\n[i] Getting user info...")
-        headers["Cookie"] = "apiKey=" + apiKey +str(";")+ "auth=" + getAuthCookie(getAPIKey())
+        headers["Cookie"] = "apiKey=" + apiKey +str(";")+ "auth=" + getAuthCookie(apiKey)
         url = 'https://api.vrchat.cloud/api/1/users/{}/name'.format(username)
         try:
             result = requests.get(url, headers=headers)
@@ -129,7 +132,7 @@ def getUserID(apiKey, username):
         return None
 
 
-def doesUserExists(username, apiKey):
+def doesUserExists(username):
     """"Asks for the user to insert the username of the user to check if exists"""
     print("\n[i] Checking if user exists...")
     url = 'https://api.vrchat.cloud/api/1/auth/exists?username={}'.format(username)
@@ -141,8 +144,7 @@ def doesUserExists(username, apiKey):
             """Extract the value called apiKey from the JSON and print it"""
             if(result.json()['userExists']) != False:
                 print("\n[i] User called: '"+ str(username) +"' DOES exists")
-                userExistsData = result.json()['userExists']
-                return userExistsData
+                return str(username)
             else:
                 log_manager("[!] User called: '"+ str(username) +"' DOES NOT exists\n[!] Exiting...", "error")
                 return False
@@ -178,5 +180,5 @@ def getAuthCookie(apiKey):
         return None
 
 
-getUserInfo(getAPIKey(), "btangent")
-#getAuthCookie(str(input("[i] Username: ")), str(input("[i] Password: ")), getAPIKey())
+#getUserInfo(apiKey, "btangent")
+#getAuthCookie(str(input("[i] Username: ")), str(input("[i] Password: ")), apiKey)
