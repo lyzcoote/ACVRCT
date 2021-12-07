@@ -43,10 +43,13 @@ result = requests.get(url, headers=headers, auth=('ExtremistShip', '67PxFs5ls1')
 print(result.status_code)
 print(result.content)
 
-print("API Key: "+ str(apiKey))
+print("API Key: "+ str(apiKey) + "\n")
+print("Auth Token: "+ str(authToken) + "\n")
 url = 'https://api.vrchat.cloud/api/1/users/lyzcoote/name'
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36',
     'Cookie': 'apiKey=' + apiKey, 'Cookie': 'auth=' + authToken}
+print('URL: ' + str(url) + "\n")
+print('Headers: ' + str(headers) + "\n")
 result = requests.get(url, headers=headers)
 print("Status Code: "+ str(result.status_code))
 print(result.content)
