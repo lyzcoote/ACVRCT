@@ -32,10 +32,17 @@ def worldIDs(worldID):
 	    5: "wrld_126db47b-55a1-47a0-a268-26261b66f614",  #Meeting Bunker
 	    6: "wrld_8ef393c0-a985-4d7e-90f0-33ab10d41ee3",  #Avatar Testing
 	    7: "wrld_d945fde1-987a-45f9-998c-a081fad71ba1",  #Gaia Night
-	    8: "wrld_94ef6736-f998-4099-b456-b3a444734013", #Open Mic Night
-	    9: "wrld_7e10376a-29b6-43af-ac5d-6eb72732e90c", #Void Club
+	    8: "wrld_94ef6736-f998-4099-b456-b3a444734013",  #Open Mic Night
+	    9: "wrld_7e10376a-29b6-43af-ac5d-6eb72732e90c",  #Void Club
 	    10: "wrld_eb29da5f-a3db-4a35-be57-9bc993d8d156", #VOLT Dance Club
-	    11: "wrld_b42b3b0e-a96b-4421-b9b2-dd41b88c9a1a" #Comfy Cave
+	    11: "wrld_b42b3b0e-a96b-4421-b9b2-dd41b88c9a1a", #Comfy Cave
+        12: "wrld_3d892cf2-cd4a-4322-9e7e-2ec0cd7ea44c", #The Afterdark Arcade
+        13: "wrld_4cf554b4-430c-4f8f-b53e-1f294eed230b", #The Black Cat
+        14: "wrld_df2776a3-8c84-45e3-bbf1-30ac8422911b", #Kitchen Cooks!
+        15: "wrld_cf5a728d-00df-428d-9424-64900200643d", #WDKS Horror Experience
+        16: "wrld_e4908cea-023b-4749-9ad7-a898b12996e7", #Test Pilots
+        17: "wrld_791ebf58-54ce-4d3a-a0a0-39f10e1b20b2", #Movie and chill
+        18: "wrld_fac11e5f-1c73-4436-8936-a70b80961c5a"  #Rest and sleep
     }
 
     return stockWorldID[worldID - 1]
@@ -48,7 +55,8 @@ def displayWorldNames():
     """
     world_list = ["The Great Pug", "The Great Pug - West", "Steak Meeting",
     "Rabbit Conference", "Presentation Room", "Meeting Bunker", "Avatar Testing", "Gaia Night",
-    "Open Mic Night", "Void Club", "VOLT Dance Club", "Comfy Cave"]
+    "Open Mic Night", "Void Club", "VOLT Dance Club", "Comfy Cave", "The Afterdark Arcade", "The Black Cat", 
+    "Kitchen Cooks!", "WDKS Horror Experience", "Test Pilots", "Movie and Chill", "Rest and Sleep"]
     n = 1
     for world in world_list:
         print("{} - {}".format(n, world))
@@ -116,10 +124,60 @@ def log_manager(message, message_type):
     elif message_type == "success":
         print("[{}] [SUCCESS]: {}".format(current_time, message))
 
-"""
-Create the main function that uses the log_manager function
-"""
-if __name__ == "__main__":
+
+def main():
+    """
+    Main function
+    """
+    print("\n")
+    print("[!] Welcome to the World Manager! \n")
+    print("[!] Please select an option: \n")
+    print("[!] 1 - Display all worlds \n")
+    print("[!] 2 - Display all instance types \n")
+    print("[!] 3 - Display all world regions \n")
+    print("[!] 4 - Launch VRChat Instance \n")
+    print("[!] 5 - Exit \n")
+    print("\n")
+    while True:
+        try:
+            option = int(input("[!] Please select an option: "))
+            if option == 1:
+                print("\n")
+                #os.system("cls")
+                displayWorldNames()
+                print("\n")
+            elif option == 2:
+                print("\n")
+                #os.system("cls")
+                displayInstanceTypes()
+                print("\n")
+            elif option == 3:
+                print("\n")
+                #os.system("cls")
+                displayWorldRegions()
+                print("\n")
+            elif option == 4:
+                print("\n")
+                lauchVRChat()
+                print("\n")
+                break
+            elif option == 5:
+                print("\n")
+                print("[!] Goodbye!")
+                print("\n")
+                break
+            else:
+                print("\n")
+                print("[!] Invalid option! Please try again. \n")
+                print("\n")
+                continue
+        except ValueError:
+            print("\n")
+            print("[!] Invalid option! Please try again. \n")
+            print("\n")
+            continue
+
+def lauchVRChat():
     log_manager("This is a test message", "success")
     displayInstanceTypes()
     print("\n")
@@ -130,7 +188,7 @@ if __name__ == "__main__":
     print(displayWorldRegions())
     print("\n")
 
-    instanceID = int(input("Enter the instance ID: "))
+    instanceID = int(input("Enter the world instance type: "))
 
     if(instanceID == 0):
         worldURL = "vrchat://launch?id={}:{}~region({})".format(worldIDs(int(input("Enter a world ID: "))),
@@ -155,6 +213,13 @@ if __name__ == "__main__":
     os.system("start \"\" \"{}\"".format(worldURL))
 
     log_manager("Log Manager ended!", "success")
+
+"""
+Create the main function that uses the log_manager function
+"""
+if __name__ == "__main__":
+    main()
+    
     
     
 
