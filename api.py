@@ -1,6 +1,7 @@
 import requests
 from requests import api
 from requests.models import CaseInsensitiveDict
+import getpass
 
 class APIKeyError(Exception):
     """Returning exception for API key error"""
@@ -15,7 +16,7 @@ class InvalidResponse(Exception):
 """
 headers = CaseInsensitiveDict()
 headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36"
-authToken = "authcookie_95026c0c-0c80-4cea-ac49-a05de84bce33" #result.json()['token']
+#authToken = "authcookie_95026c0c-0c80-4cea-ac49-a05de84bce33" #result.json()['token']
 
 
 
@@ -68,7 +69,7 @@ def getUserInfo(apiKey, username):
     """
     if(doesUserExists(username, apiKey)):
         print("\n[i] Getting user info...")
-        headers["Cookie"] = "apiKey=" + apiKey +str(";")+ "auth=" + authToken
+        headers["Cookie"] = "apiKey=" + apiKey +str(";")+ "auth=" + getAuthCookie(getAPIKey())
         url = 'https://api.vrchat.cloud/api/1/users/{}/name'.format(username)
         try:
             result = requests.get(url, headers=headers)
@@ -98,6 +99,35 @@ def getUserInfo(apiKey, username):
 
 
 
+def getUserID(apiKey, username):
+    """
+        Get user info from VRChat APIs
+    """
+    if(doesUserExists(username, apiKey)):
+        print("\n[i] Getting user info...")
+        headers["Cookie"] = "apiKey=" + apiKey +str(";")+ "auth=" + getAuthCookie(getAPIKey())
+        url = 'https://api.vrchat.cloud/api/1/users/{}/name'.format(username)
+        try:
+            result = requests.get(url, headers=headers)
+            if result.status_code == 200:
+                """Prints the result of the request with the status code and formatted JSON"""
+                print("Status Code from VRChat API Server: "+ str(result.status_code))
+                """Extract the value called apiKey from the JSON and print it"""
+                if(result.json()['username']) != None:
+                    userInfo = result.json()['id']
+                    print("[i] User ID: {}".format(userInfo+"\n"))
+                    return userInfo
+                else:
+                    raise APIKeyError("[!] API key not found in VRChat APIs")
+                return userInfo
+            else:
+                raise InvalidResponse("\n[!] Invalid response from VRChat APIs\n[!] Status Code: "+ str(result.status_code))
+        except requests.exceptions.RequestException as e:
+            print("[!] Error: " + str(e))
+            return None
+    else:
+        return None
+
 
 def doesUserExists(username, apiKey):
     """"Asks for the user to insert the username of the user to check if exists"""
@@ -123,59 +153,30 @@ def doesUserExists(username, apiKey):
         return None
 
 
-getUserInfo(getAPIKey(), "btangentndjsndjs")
-
-"""url = 'https://api.vrchat.cloud/api/1/auth/exists?username={}'.format(username)
-    headers["Cookie"] = "apiKey=" + apiKey
-    result = requests.get(url, headers=headers)
-    print(result.status_code)
-    print(result.json())    
-
-
-url = 'https://api.vrchat.cloud/api/1/users/lyzcoote/name'
-headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
- 'Cookie': 'apiKey=' + apiKey}
-result = requests.get(url, headers=headers)
-print(result.status_code)
-print(result.json())
-
-#Make a custom API GET Request with a custom header and basic HTTP authentication
-url = 'https://api.vrchat.cloud/api/1/auth'
-headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
-    'Cookie': 'apiKey=' + getAPIKey()}
-result = requests.get(url, headers=headers, auth=('ExtremistShip', '67PxFs5ls1'))
-print(result.status_code)
-print(result.content)
-authToken = "authcookie_95026c0c-0c80-4cea-ac49-a05de84bce33" #result.json()['token']
-print(authToken)
-
-url = 'https://api.vrchat.cloud/api/1/auth/user'
-headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
-    'Cookie': 'auth=' + authToken}
-result = requests.get(url, headers=headers, auth=('ExtremistShip', '67PxFs5ls1'))
-print(result.status_code)
-print(result.content)
-
-print("API Key: "+ str(getAPIKey()) + "\n")
-print("Auth Token: "+ str(authToken) + "\n")
-url = 'https://api.vrchat.cloud/api/1/users/lyzcoote/name'
-headers["Cookie"] = "apiKey=" + getAPIKey() +str(";")+ "auth=" + authToken
-print('URL: ' + str(url) + "\n")
-print('Headers: ' + str(headers) + "\n")
-result = requests.get(url, headers=headers)
-print("Status Code: "+ str(result.status_code))
-print(result.content)
-userID = result.json()['id']
-userUsername = result.json()['username']
-userDisplayName = result.json()['displayName']
-userState = result.json()['state']
-
-print("User found! Logging information...\n")
-print("User ID: "+ str(userID) + "\n")
-print("User Username: "+ str(userUsername) + "\n")
-print("User Display Name: "+ str(userDisplayName) + "\n")
-print("User State: "+ str(userState) + "\n")
+def getAuthCookie(apiKey):
+        #Get auth cookie from VRChat APIs
+    print("\n[i] Getting auth cookie...")
+    url = 'https://api.vrchat.cloud/api/1/auth'
+    try:
+        headers["Cookie"] = "apiKey=" + apiKey
+        print("[!] DISCLAIMER:\n[!] Your Username and Password will be sended to VRChat API Servers,\n[!] they won't be send or saved to the creator of this launcher!")
+        result = requests.get(url, headers=headers, auth=(str(input("[i] Username: ")), str(getpass.getpass("[i] Password: "))))
+        if result.status_code == 200:
+            #Prints the result of the request with the status code and formatted JSON
+            print("Status Code from VRChat API Server: "+ str(result.status_code))
+            #Extract the value called apiKey from the JSON and print it
+            if(result.json()['token']) != None:
+                authToken = result.json()['token']
+                print("[i] Auth token: {}".format(authToken))
+                return authToken
+            else:
+                raise APIKeyError("[!] API key not found in VRChat APIs")
+        else:
+            raise InvalidResponse("\n[!] Invalid response from VRChat APIs\n[!] Status Code: "+ str(result.status_code) +"\n[!] Content: "+ str(result.content))
+    except requests.exceptions.RequestException as e:
+        print("[!] Error: " + str(e))
+        return None
 
 
-
-"""
+getUserInfo(getAPIKey(), "btangent")
+#getAuthCookie(str(input("[i] Username: ")), str(input("[i] Password: ")), getAPIKey())

@@ -113,50 +113,6 @@
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\contextlib.py',
    'PYMODULE'),
-  ('typing',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\typing.py',
-   'PYMODULE'),
-  ('stringprep',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\stringprep.py',
-   'PYMODULE'),
-  ('base64',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\base64.py',
-   'PYMODULE'),
-  ('getopt',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\getopt.py',
-   'PYMODULE'),
-  ('bz2',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\bz2.py',
-   'PYMODULE'),
-  ('threading',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\threading.py',
-   'PYMODULE'),
-  ('_threading_local',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\_threading_local.py',
-   'PYMODULE'),
-  ('_strptime',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\_strptime.py',
-   'PYMODULE'),
-  ('calendar',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\calendar.py',
-   'PYMODULE'),
-  ('_compression',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\_compression.py',
-   'PYMODULE'),
-  ('quopri',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\quopri.py',
-   'PYMODULE'),
   ('tracemalloc',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\tracemalloc.py',
@@ -168,6 +124,14 @@
   ('pprint',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\pprint.py',
+   'PYMODULE'),
+  ('_strptime',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\_strptime.py',
+   'PYMODULE'),
+  ('calendar',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\calendar.py',
    'PYMODULE'),
   ('doctest',
    'c:\\users\\lyz '
@@ -209,6 +173,14 @@
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\logging\\__init__.py',
    'PYMODULE'),
+  ('threading',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\threading.py',
+   'PYMODULE'),
+  ('_threading_local',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\_threading_local.py',
+   'PYMODULE'),
   ('unittest.result',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\unittest\\result.py',
@@ -220,6 +192,10 @@
   ('pdb',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\pdb.py',
+   'PYMODULE'),
+  ('getopt',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\getopt.py',
    'PYMODULE'),
   ('pydoc',
    'c:\\users\\lyz '
@@ -257,9 +233,17 @@
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\gzip.py',
    'PYMODULE'),
+  ('_compression',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\_compression.py',
+   'PYMODULE'),
   ('lzma',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\lzma.py',
+   'PYMODULE'),
+  ('bz2',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\bz2.py',
    'PYMODULE'),
   ('email.message',
    'c:\\users\\lyz '
@@ -300,6 +284,10 @@
   ('email._encoded_words',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\email\\_encoded_words.py',
+   'PYMODULE'),
+  ('base64',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\base64.py',
    'PYMODULE'),
   ('email.charset',
    'c:\\users\\lyz '
@@ -344,6 +332,10 @@
   ('email.feedparser',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\email\\feedparser.py',
+   'PYMODULE'),
+  ('quopri',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\quopri.py',
    'PYMODULE'),
   ('uu',
    'c:\\users\\lyz '
@@ -477,6 +469,14 @@
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\_py_abc.py',
    'PYMODULE'),
+  ('typing',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\typing.py',
+   'PYMODULE'),
+  ('stringprep',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\stringprep.py',
+   'PYMODULE'),
   ('datetime',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\datetime.py',
@@ -565,6 +565,329 @@
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\xml\\sax\\xmlreader.py',
    'PYMODULE'),
+  ('api',
+   'C:\\Users\\Lyz Coote\\Documents\\GitHub\\VRChat-Py-Launcher\\api.py',
+   'PYMODULE'),
+  ('requests.models',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\requests\\models.py',
+   'PYMODULE'),
+  ('idna',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\idna\\__init__.py',
+   'PYMODULE'),
+  ('idna.intranges',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\idna\\intranges.py',
+   'PYMODULE'),
+  ('idna.core',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\idna\\core.py',
+   'PYMODULE'),
+  ('idna.uts46data',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\idna\\uts46data.py',
+   'PYMODULE'),
+  ('idna.idnadata',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\idna\\idnadata.py',
+   'PYMODULE'),
+  ('idna.package_data',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\idna\\package_data.py',
+   'PYMODULE'),
+  ('requests.status_codes',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\requests\\status_codes.py',
+   'PYMODULE'),
+  ('requests.compat',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\requests\\compat.py',
+   'PYMODULE'),
+  ('http.cookies',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\http\\cookies.py',
+   'PYMODULE'),
+  ('json',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\json\\__init__.py',
+   'PYMODULE'),
+  ('json.encoder',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\json\\encoder.py',
+   'PYMODULE'),
+  ('json.decoder',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\json\\decoder.py',
+   'PYMODULE'),
+  ('json.scanner',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\json\\scanner.py',
+   'PYMODULE'),
+  ('charset_normalizer',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\charset_normalizer\\__init__.py',
+   'PYMODULE'),
+  ('charset_normalizer.version',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\charset_normalizer\\version.py',
+   'PYMODULE'),
+  ('charset_normalizer.models',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\charset_normalizer\\models.py',
+   'PYMODULE'),
+  ('charset_normalizer.cd',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\charset_normalizer\\cd.py',
+   'PYMODULE'),
+  ('charset_normalizer.assets',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\charset_normalizer\\assets\\__init__.py',
+   'PYMODULE'),
+  ('charset_normalizer.utils',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\charset_normalizer\\utils.py',
+   'PYMODULE'),
+  ('charset_normalizer.md',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\charset_normalizer\\md.py',
+   'PYMODULE'),
+  ('charset_normalizer.constant',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\charset_normalizer\\constant.py',
+   'PYMODULE'),
+  ('charset_normalizer.legacy',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\charset_normalizer\\legacy.py',
+   'PYMODULE'),
+  ('charset_normalizer.api',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\charset_normalizer\\api.py',
+   'PYMODULE'),
+  ('requests.utils',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\requests\\utils.py',
+   'PYMODULE'),
+  ('requests.certs',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\requests\\certs.py',
+   'PYMODULE'),
+  ('certifi',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\certifi\\__init__.py',
+   'PYMODULE'),
+  ('certifi.core',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\certifi\\core.py',
+   'PYMODULE'),
+  ('importlib.resources',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\importlib\\resources.py',
+   'PYMODULE'),
+  ('pathlib',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\pathlib.py',
+   'PYMODULE'),
+  ('requests.__version__',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\requests\\__version__.py',
+   'PYMODULE'),
+  ('requests._internal_utils',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\requests\\_internal_utils.py',
+   'PYMODULE'),
+  ('requests.exceptions',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\requests\\exceptions.py',
+   'PYMODULE'),
+  ('requests.cookies',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\requests\\cookies.py',
+   'PYMODULE'),
+  ('dummy_threading',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\dummy_threading.py',
+   'PYMODULE'),
+  ('_dummy_thread',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\_dummy_thread.py',
+   'PYMODULE'),
+  ('requests.auth',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\requests\\auth.py',
+   'PYMODULE'),
+  ('requests.structures',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\requests\\structures.py',
+   'PYMODULE'),
+  ('requests.hooks',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\requests\\hooks.py',
+   'PYMODULE'),
+  ('urllib3.exceptions',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\exceptions.py',
+   'PYMODULE'),
+  ('urllib3',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\__init__.py',
+   'PYMODULE'),
+  ('urllib3.util.url',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\util\\url.py',
+   'PYMODULE'),
+  ('urllib3.packages.six',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\packages\\six.py',
+   'PYMODULE'),
+  ('urllib3.packages',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\packages\\__init__.py',
+   'PYMODULE'),
+  ('urllib3.packages.ssl_match_hostname',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\packages\\ssl_match_hostname\\__init__.py',
+   'PYMODULE'),
+  ('urllib3.packages.ssl_match_hostname._implementation',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\packages\\ssl_match_hostname\\_implementation.py',
+   'PYMODULE'),
+  ('ipaddress',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\ipaddress.py',
+   'PYMODULE'),
+  ('urllib3.util.timeout',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\util\\timeout.py',
+   'PYMODULE'),
+  ('urllib3.util.retry',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\util\\retry.py',
+   'PYMODULE'),
+  ('urllib3.util.request',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\util\\request.py',
+   'PYMODULE'),
+  ('urllib3.response',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\response.py',
+   'PYMODULE'),
+  ('urllib3.util.response',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\util\\response.py',
+   'PYMODULE'),
+  ('queue',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\queue.py',
+   'PYMODULE'),
+  ('urllib3.connection',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\connection.py',
+   'PYMODULE'),
+  ('urllib3.util.ssl_',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\util\\ssl_.py',
+   'PYMODULE'),
+  ('urllib3.util.ssltransport',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\util\\ssltransport.py',
+   'PYMODULE'),
+  ('hmac',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\hmac.py',
+   'PYMODULE'),
+  ('urllib3.util.connection',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\util\\connection.py',
+   'PYMODULE'),
+  ('urllib3.util.wait',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\util\\wait.py',
+   'PYMODULE'),
+  ('urllib3.contrib._appengine_environ',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\contrib\\_appengine_environ.py',
+   'PYMODULE'),
+  ('urllib3.contrib',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\contrib\\__init__.py',
+   'PYMODULE'),
+  ('urllib3.contrib.pyopenssl',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\contrib\\pyopenssl.py',
+   'PYMODULE'),
+  ('urllib3.packages.backports.makefile',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\packages\\backports\\makefile.py',
+   'PYMODULE'),
+  ('urllib3.packages.backports',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\packages\\backports\\__init__.py',
+   'PYMODULE'),
+  ('urllib3.util.proxy',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\util\\proxy.py',
+   'PYMODULE'),
+  ('urllib3._collections',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\_collections.py',
+   'PYMODULE'),
+  ('urllib3.poolmanager',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\poolmanager.py',
+   'PYMODULE'),
+  ('urllib3.request',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\request.py',
+   'PYMODULE'),
+  ('urllib3.connectionpool',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\connectionpool.py',
+   'PYMODULE'),
+  ('urllib3.util.queue',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\util\\queue.py',
+   'PYMODULE'),
+  ('urllib3._version',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\_version.py',
+   'PYMODULE'),
+  ('urllib3.util',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\util\\__init__.py',
+   'PYMODULE'),
+  ('urllib3.filepost',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\filepost.py',
+   'PYMODULE'),
+  ('urllib3.fields',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\fields.py',
+   'PYMODULE'),
+  ('requests.api',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\requests\\api.py',
+   'PYMODULE'),
+  ('requests.sessions',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\requests\\sessions.py',
+   'PYMODULE'),
+  ('requests.adapters',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\requests\\adapters.py',
+   'PYMODULE'),
+  ('urllib3.contrib.socks',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\urllib3\\contrib\\socks.py',
+   'PYMODULE'),
+  ('requests',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\requests\\__init__.py',
+   'PYMODULE'),
+  ('requests.packages',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\requests\\packages.py',
+   'PYMODULE'),
   ('os',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\os.py',
@@ -573,17 +896,17 @@
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\random.py',
    'PYMODULE')],
- [('api-ms-win-crt-math-l1-1-0.dll',
+ [('api-ms-win-crt-stdio-l1-1-0.dll',
    'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-crt-math-l1-1-0.dll',
-   'BINARY'),
-  ('python37.dll',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\python37.dll',
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-crt-stdio-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-crt-runtime-l1-1-0.dll',
    'C:\\Program '
    'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-crt-runtime-l1-1-0.dll',
+   'BINARY'),
+  ('python37.dll',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\python37.dll',
    'BINARY'),
   ('api-ms-win-crt-heap-l1-1-0.dll',
    'C:\\Program '
@@ -593,9 +916,9 @@
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\VCRUNTIME140.dll',
    'BINARY'),
-  ('api-ms-win-crt-stdio-l1-1-0.dll',
+  ('api-ms-win-crt-math-l1-1-0.dll',
    'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-crt-stdio-l1-1-0.dll',
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-crt-math-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-crt-locale-l1-1-0.dll',
    'C:\\Program '
@@ -604,13 +927,9 @@
   ('ucrtbase.dll',
    'C:\\Program Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\ucrtbase.dll',
    'BINARY'),
-  ('api-ms-win-crt-convert-l1-1-0.dll',
+  ('api-ms-win-crt-string-l1-1-0.dll',
    'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-crt-convert-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-crt-process-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-crt-process-l1-1-0.dll',
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-crt-string-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-crt-time-l1-1-0.dll',
    'C:\\Program '
@@ -624,69 +943,49 @@
    'C:\\Program '
    'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-crt-filesystem-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-crt-string-l1-1-0.dll',
+  ('api-ms-win-crt-convert-l1-1-0.dll',
    'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-crt-string-l1-1-0.dll',
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-crt-convert-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-crt-process-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-crt-process-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-crt-conio-l1-1-0.dll',
    'C:\\Program '
    'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-crt-conio-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-debug-l1-1-0.dll',
+  ('api-ms-win-core-timezone-l1-1-0.dll',
    'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-debug-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-file-l1-2-0.dll',
-   'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-file-l1-2-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-datetime-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-datetime-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-sysinfo-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-sysinfo-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-interlocked-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-interlocked-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-string-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-string-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-processenvironment-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-processenvironment-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-console-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-console-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-synch-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-synch-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-file-l2-1-0.dll',
-   'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-file-l2-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-processthreads-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-processthreads-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-memory-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-memory-l1-1-0.dll',
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-timezone-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-core-handle-l1-1-0.dll',
    'C:\\Program '
    'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-handle-l1-1-0.dll',
    'BINARY'),
+  ('api-ms-win-core-profile-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-profile-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-datetime-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-datetime-l1-1-0.dll',
+   'BINARY'),
   ('api-ms-win-core-localization-l1-2-0.dll',
    'C:\\Program '
    'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-localization-l1-2-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-interlocked-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-interlocked-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-file-l1-2-0.dll',
+   'C:\\Program '
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-file-l1-2-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-synch-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-synch-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-core-errorhandling-l1-1-0.dll',
    'C:\\Program '
@@ -696,50 +995,66 @@
    'C:\\Program '
    'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-synch-l1-2-0.dll',
    'BINARY'),
-  ('api-ms-win-core-profile-l1-1-0.dll',
+  ('api-ms-win-core-rtlsupport-l1-1-0.dll',
    'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-profile-l1-1-0.dll',
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-rtlsupport-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-core-namedpipe-l1-1-0.dll',
    'C:\\Program '
    'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-namedpipe-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-heap-l1-1-0.dll',
+  ('api-ms-win-core-console-l1-1-0.dll',
    'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-heap-l1-1-0.dll',
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-console-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-memory-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-memory-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-processenvironment-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-processenvironment-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-sysinfo-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-sysinfo-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-file-l2-1-0.dll',
+   'C:\\Program '
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-file-l2-1-0.dll',
    'BINARY'),
   ('api-ms-win-core-file-l1-1-0.dll',
    'C:\\Program '
    'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-file-l1-1-0.dll',
    'BINARY'),
+  ('api-ms-win-core-libraryloader-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-libraryloader-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-debug-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-debug-l1-1-0.dll',
+   'BINARY'),
   ('api-ms-win-core-processthreads-l1-1-1.dll',
    'C:\\Program '
    'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-processthreads-l1-1-1.dll',
+   'BINARY'),
+  ('api-ms-win-core-string-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-string-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-heap-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-heap-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-core-util-l1-1-0.dll',
    'C:\\Program '
    'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-util-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-libraryloader-l1-1-0.dll',
+  ('api-ms-win-core-processthreads-l1-1-0.dll',
    'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-libraryloader-l1-1-0.dll',
+   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-processthreads-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-timezone-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-timezone-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-rtlsupport-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\AdoptOpenJDK\\jdk-15.0.2.7-hotspot\\bin\\api-ms-win-core-rtlsupport-l1-1-0.dll',
-   'BINARY'),
-  ('unicodedata',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\DLLs\\unicodedata.pyd',
-   'EXTENSION'),
-  ('_bz2',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\DLLs\\_bz2.pyd',
-   'EXTENSION'),
   ('_socket',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\DLLs\\_socket.pyd',
@@ -747,6 +1062,10 @@
   ('_lzma',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\DLLs\\_lzma.pyd',
+   'EXTENSION'),
+  ('_bz2',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\DLLs\\_bz2.pyd',
    'EXTENSION'),
   ('select',
    'c:\\users\\lyz '
@@ -756,6 +1075,10 @@
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\DLLs\\_ssl.pyd',
    'EXTENSION'),
+  ('unicodedata',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\DLLs\\unicodedata.pyd',
+   'EXTENSION'),
   ('_hashlib',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\DLLs\\_hashlib.pyd',
@@ -764,13 +1087,17 @@
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\DLLs\\pyexpat.pyd',
    'EXTENSION'),
-  ('libcrypto-1_1.dll',
+  ('_queue',
    'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\DLLs\\libcrypto-1_1.dll',
-   'BINARY'),
+   'coote\\appdata\\local\\programs\\python\\python37\\DLLs\\_queue.pyd',
+   'EXTENSION'),
   ('libssl-1_1.dll',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\DLLs\\libssl-1_1.dll',
+   'BINARY'),
+  ('libcrypto-1_1.dll',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\DLLs\\libcrypto-1_1.dll',
    'BINARY'),
   ('api-ms-win-crt-utility-l1-1-0.dll',
    'C:\\Program '

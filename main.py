@@ -1,5 +1,6 @@
 import random
 import os
+import api as api
 """
 Create a function that shows the system Arch and OS in Python
 """
@@ -195,7 +196,7 @@ def lauchVRChat():
      random.randint(300, 1000),
       world_region(int(input("Enter a world region ID: "))))
     else:
-        userID = input("Enter a user ID: ")
+        userID = api.getUserID(api.getAPIKey(), str(input("Enter your username: ")))
         worldURL = "vrchat://launch?id={}:{}~{}({})~region({})~nonce(314e6a52-3125-4722-b313-f2666a094c43)".format(worldIDs(int(input("Enter a world ID: "))),
      random.randint(300, 1000),
      world_instances(instanceID),
