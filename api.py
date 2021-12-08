@@ -1,6 +1,7 @@
 import requests
 from requests import api
 from requests.models import CaseInsensitiveDict
+import os
 import getpass
 
 class APIKeyError(Exception):
@@ -52,6 +53,7 @@ def getAPIKey():
             print("Status Code from VRChat API Server: "+ str(result.status_code))
             """Extract the value called apiKey from the JSON and print it"""
             if(result.json()['apiKey']) != None:
+                os.system('cls')
                 apiKey = result.json()['apiKey']
             else:
                 raise APIKeyError("[!] API key not found in VRChat APIs")
@@ -64,6 +66,11 @@ def getAPIKey():
         
 
 apiKey = getAPIKey()
+
+
+def getCachedAPIKey():
+    return apiKey
+
 
 
 def getUserInfo(apiKey, username):
@@ -175,6 +182,28 @@ def getAuthCookie(apiKey):
                 raise APIKeyError("[!] API key not found in VRChat APIs")
         else:
             raise InvalidResponse("\n[!] Invalid response from VRChat APIs\n[!] Status Code: "+ str(result.status_code) +"\n[!] Content: "+ str(result.content))
+    except requests.exceptions.RequestException as e:
+        print("[!] Error: " + str(e))
+        return None
+
+
+def getWorldNamebyID(worldID):
+    print("\n[i] Checking world name...")
+    url = 'https://api.vrchat.cloud/api/1/worlds/{}'.format(worldID)
+    try:
+        result = requests.get(url, headers=headers, params={'apiKey': apiKey})
+        if result.status_code == 200:
+            """Prints the result of the request with the status code and formatted JSON"""
+            print("Status Code from VRChat API Server: "+ str(result.status_code))
+            """Extract the value called apiKey from the JSON and print it"""
+            if(result.json()['id']) != None:
+                print("\n[i] World name is: {}".format(result.json()['name']))
+                return result.json()['name']
+            else:
+                log_manager("[!] World by ID: '"+ str(worldID) +"' DOES NOT exists\n[!] Exiting...", "error")
+                return False
+        else:
+            raise InvalidResponse("\n[!] Invalid response from VRChat APIs\n[!] Status Code: "+ str(result.status_code))
     except requests.exceptions.RequestException as e:
         print("[!] Error: " + str(e))
         return None

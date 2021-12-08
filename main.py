@@ -2,8 +2,9 @@ import random
 import os
 import api as api
 
-apiKey = api.getAPIKey()
-
+version = "0.1.3Alpha"
+authorGitHubUrl = "https://github.com/lyzcoote"
+choosenWorldID = 0
 
 """
 Create a function that shows the system Arch and OS in Python
@@ -49,7 +50,7 @@ def worldIDs(worldID):
         17: "wrld_791ebf58-54ce-4d3a-a0a0-39f10e1b20b2", #Movie and chill
         18: "wrld_fac11e5f-1c73-4436-8936-a70b80961c5a"  #Rest and sleep
     }
-
+    choosenWorldID = stockWorldID[worldID]
     return stockWorldID[worldID - 1]
 
 
@@ -67,10 +68,19 @@ def displayWorldNames():
         print("{} - {}".format(n, world))
         n += 1
 
+def displayLaunchedWorldName():
+    """
+    Return a list of all the worlds with formatting given a worldname list
+    """
+    world_list = ["The Great Pug", "The Great Pug - West", "Steak Meeting",
+    "Rabbit Conference", "Presentation Room", "Meeting Bunker", "Avatar Testing", "Gaia Night",
+    "Open Mic Night", "Void Club", "VOLT Dance Club", "Comfy Cave", "The Afterdark Arcade", "The Black Cat", 
+    "Kitchen Cooks!", "WDKS Horror Experience", "Test Pilots", "Movie and Chill", "Rest and Sleep"]
+    
 
 def displayInstanceTypes():
     instance_list = ["0 - Public World", "1 - Friends World", "2 - Hidden World", "3 - Private World", "4 - Private World"]
-    print("\n[!] WARNING! Only public worlds are supported at this time. \n The other type of worlds will load after some minutes.")
+    print("[!] WARNING! Only public worlds are supported at this time. \n The other type of worlds will load after some minutes.")
     print("\n")
     list(map(lambda x: print("{}".format(x)), instance_list))
 
@@ -130,41 +140,53 @@ def log_manager(message, message_type):
         print("[{}] [SUCCESS]: {}".format(current_time, message))
 
 
+def launcherMenu():
+    print("[i] Welcome to LyzCoote's World Launcher! \n")
+    print("[i] You're running version: {}".format(version) + "\n")
+    print("[!] This script will help you launch worlds in the game.")
+    print("[!] Please note that this script is not 100% accurate and will contain bug/crashes. \n")
+    print("[i] Please select an option: ")
+    print("[i] 1 - Display author's GitHub Pagen")
+    print("[i] 2 - Display system informations ")
+    print("[i] 3 - Display current VRChat API Key ")
+    print("[i] 4 - Launch VRChat Instance ")
+    print("[i] 5 - Exit \n")
+    print("\n")
+
+
 def main():
     """
     Main function
     """
-    print("\n")
-    print("[!] Welcome to the World Manager! \n")
-    print("[!] Please select an option: \n")
-    print("[!] 1 - Display all worlds \n")
-    print("[!] 2 - Display all instance types \n")
-    print("[!] 3 - Display all world regions \n")
-    print("[!] 4 - Launch VRChat Instance \n")
-    print("[!] 5 - Exit \n")
-    print("\n")
+    launcherMenu()
     while True:
         try:
             option = int(input("[!] Please select an option: "))
             if option == 1:
                 print("\n")
-                #os.system("cls")
-                displayWorldNames()
+                os.system("cls")
+                os.system("start \"\" \"{}\"".format(authorGitHubUrl))
                 print("\n")
+                os.system("cls")
+                launcherMenu()
             elif option == 2:
                 print("\n")
-                #os.system("cls")
-                displayInstanceTypes()
+                os.system("cls")
+                os.system("systeminfo")
+                os.system("pause")
                 print("\n")
+                os.system("cls")
+                launcherMenu()
             elif option == 3:
                 print("\n")
-                #os.system("cls")
-                displayWorldRegions()
-                print("\n")
+                os.system("cls")
+                print("[i] The current VRChat API Key is: {}".format(api.getCachedAPIKey()))
+                os.system("pause")
+                os.system("cls")
+                launcherMenu()
             elif option == 4:
-                print("\n")
+                os.system("cls")
                 lauchVRChat()
-                print("\n")
                 break
             elif option == 5:
                 print("\n")
@@ -183,29 +205,33 @@ def main():
             continue
 
 def lauchVRChat():
-    log_manager("This is a test message", "success")
     displayInstanceTypes()
     print("\n")
 
+    instanceID = world_instances(int(input("Enter the world instance type: ")))
+
+    os.system("cls")
+
+    
     print(displayWorldNames())
     print("\n")
+
+    worldID = worldIDs(int(input("Enter a world ID: ")))
+
+    os.system("cls")
 
     print(displayWorldRegions())
     print("\n")
 
-    instanceID = int(input("Enter the world instance type: "))
+    regionID = world_region(int(input("Enter a world region: ")))
 
-    if(instanceID == 0):
-        worldURL = "vrchat://launch?id={}:{}~region({})".format(worldIDs(int(input("Enter a world ID: "))),
-     random.randint(300, 1000),
-      world_region(int(input("Enter a world region ID: "))))
+    os.system("cls")
+
+    if(instanceID == "public"):
+        worldURL = "vrchat://launch?id={}:{}~region({})".format(worldID, random.randint(300, 1000), regionID)
     else:
-        userID = api.getUserID(apiKey, str(api.doesUserExists(input("Enter your username: "))))
-        worldURL = "vrchat://launch?id={}:{}~{}({})~region({})~nonce(314e6a52-3125-4722-b313-f2666a094c43)".format(worldIDs(int(input("Enter a world ID: "))),
-     random.randint(300, 1000),
-     world_instances(instanceID),
-     userID,
-      world_region(int(input("Enter a world region ID: "))))
+        userID = api.getUserID(api.getCachedAPIKey(), str(input("Enter your username: ")))
+        worldURL = "vrchat://launch?id={}:{}~{}({})~region({})~nonce(314e6a52-3125-4722-b313-f2666a094c43)".format(worldID, random.randint(300, 1000), instanceID, userID, regionID)
       
       
 
@@ -213,6 +239,7 @@ def lauchVRChat():
 
     """Create a url with the world ID and world instance ID given by the user """
     print("\n")
+    print("[i] Launching world {} in region {} in a {} instance".format(api.getWorldNamebyID(worldID), regionID, instanceID))
     print(worldURL)
     """Open the url in the default browser """
     os.system("start \"\" \"{}\"".format(worldURL))
