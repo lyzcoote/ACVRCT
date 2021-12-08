@@ -37,6 +37,17 @@ headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/5
 #                                                                              #
 ################################################################################
 
+def getMaxStr(lst):
+    return max(lst, key=len)
+
+
+"""Create a rectangle box with printable characters of a list"""
+def printBox(list):
+    print("+" + "-" * (len(getMaxStr(list)) + 2) + "+")
+    for i in list:
+        print("| " + i + " " * (len(getMaxStr(list)) - len(i)) + " |")
+    print("+" + "-" * (len(getMaxStr(list)) + 2) + "+")
+
 
 """
 Create a simple log manager with errors, warning and success messages with the current time
@@ -186,8 +197,18 @@ def getAuthCookie(apiKey):
     url = 'https://api.vrchat.cloud/api/1/auth'
     try:
         headers["Cookie"] = "apiKey=" + apiKey
-        print("[!] DISCLAIMER:\n[!] Your Username and Password will be sended to VRChat API Servers,\n[!] they won't be send or saved to the creator of this launcher!")
-        result = requests.get(url, headers=headers, auth=(str(input("[i] Username: ")), str(getpass.getpass("[i] Password: "))), verify=False)
+        message = ["[i] A login is required for getting an Authorization Cookie ",
+            "    which is necessary for converting a username into UserID ",
+            "" ,
+            "[!] DISCLAIMER: ",
+            "[!] Your Username and Password will be sent to VRChat API Servers. ",
+            "[!] They won't be sent or saved to the creator of this launcher! ",
+            "[!] If you're not sure about logging in with your account, use a burner account. ",
+            "", 
+            "[i] If you want to continue, insert your credentials, otherwise feel free to exit."]
+        
+        printBox(message)
+        result = requests.get(url, headers=headers, auth=(str(input("[i] Enter your Username: ")), str(getpass.getpass("[i] Enter your password: "))), verify=False)
         if result.status_code == 200:
             #Prints the result of the request with the status code and formatted JSON
             print("Status Code from VRChat API Server: "+ str(result.status_code))
@@ -368,8 +389,9 @@ def launcherMenu():
     print("[i] 1 - Display author's GitHub Pagen")
     print("[i] 2 - Display system informations ")
     print("[i] 3 - Display current VRChat API Key ")
-    print("[i] 4 - Launch VRChat Instance ")
-    print("[i] 5 - Exit \n")
+    print("[i] 4 - Launch custom VRChat Instance ")
+    print("[i] 5 - Launch Home VRChat World ")
+    print("[i] 6 - Exit \n")
     print("\n")
 
 
@@ -408,6 +430,10 @@ def main():
                 lauchVRChat()
                 break
             elif option == 5:
+                os.system("cls")
+                lauchHomeWorld()
+                break
+            elif option == 6:
                 print("\n")
                 print("[!] Goodbye!")
                 print("\n")
@@ -422,6 +448,17 @@ def main():
             print("[!] Invalid option! Please try again. \n")
             print("\n")
             continue
+
+def lauchHomeWorld():
+    """
+    Launch the home world
+    """
+    print("[i] Launching home world...")
+    print("\n")
+    os.system("cls")
+    os.system("start \"\" \"{}\"".format("vrchat://launch"))
+    print("\n")
+    os.system("cls")
 
 def lauchVRChat():
     displayInstanceTypes()
@@ -473,8 +510,14 @@ def lauchVRChat():
 ################################################################################
 
 
+
 """
 Create the main function that uses the log_manager function
 """
 if __name__ == "__main__":
     main()
+    
+
+
+
+
