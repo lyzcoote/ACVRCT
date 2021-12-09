@@ -1,8 +1,19 @@
+import os
 import requests
 from requests import api
 from requests.models import CaseInsensitiveDict
-import os
 import getpass
+import otherUtils as utils
+import logManager as logManager
+
+version = "0.2.1.1Alpha"
+authorGitHubUrl = "https://github.com/lyzcoote"
+
+################################################################################
+#                                                                              #
+#                                    Classes                                   #
+#                                                                              #
+################################################################################
 
 class APIKeyError(Exception):
     """Returning exception for API key error"""
@@ -12,32 +23,20 @@ class InvalidResponse(Exception):
     """Returning exception for invalid response"""
     pass
 
-"""
-    Constant variables
-"""
+################################################################################
+#                                                                              #
+#                              Constant Variables                              #
+#                                                                              #
+################################################################################
+
 headers = CaseInsensitiveDict()
 headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36"
 
-
-
-
-"""
-Create a simple log manager with errors, warning and success messages with the current time
-"""
-def log_manager(message, message_type):
-    """
-    Return a message with a message type and time
-    """
-    from datetime import datetime
-    now = datetime.now()
-
-    current_time = now.strftime("%H:%M:%S")
-    if message_type == "error":
-        print("[{}] [ERROR]: {}".format(current_time, message))
-    elif message_type == "warning":
-        print("[{}] [WARNING]: {}".format(current_time, message))
-    elif message_type == "success":
-        print("[{}] [SUCCESS]: {}".format(current_time, message))
+################################################################################
+#                                                                              #
+#                                   Functions                                  #
+#                                                                              #
+################################################################################
 
 
 def getAPIKey():
@@ -46,8 +45,9 @@ def getAPIKey():
     """
     print("\n[i] Getting API key...")
     url = 'https://api.vrchat.cloud/api/1/config'
+    
     try:
-        result = requests.get(url, headers=headers)
+        result = requests.get(url, headers=headers, verify=False)
         if result.status_code == 200:
             """Prints the result of the request with the status code and formatted JSON"""
             print("Status Code from VRChat API Server: "+ str(result.status_code))
@@ -64,14 +64,10 @@ def getAPIKey():
         print("[!] Error: " + str(e))
         return None
         
-
 apiKey = getAPIKey()
-
 
 def getCachedAPIKey():
     return apiKey
-
-
 
 def getUserInfo(apiKey, username):
     """
@@ -82,7 +78,7 @@ def getUserInfo(apiKey, username):
         headers["Cookie"] = "apiKey=" + apiKey +str(";")+ "auth=" + getAuthCookie(apiKey)
         url = 'https://api.vrchat.cloud/api/1/users/{}/name'.format(username)
         try:
-            result = requests.get(url, headers=headers)
+            result = requests.get(url, headers=headers, verify=False)
             if result.status_code == 200:
                 """Prints the result of the request with the status code and formatted JSON"""
                 print("Status Code from VRChat API Server: "+ str(result.status_code))
@@ -108,7 +104,6 @@ def getUserInfo(apiKey, username):
         return None
 
 
-
 def getUserID(apiKey, username):
     """
         Get user info from VRChat APIs
@@ -118,7 +113,7 @@ def getUserID(apiKey, username):
         headers["Cookie"] = "apiKey=" + apiKey +str(";")+ "auth=" + getAuthCookie(apiKey)
         url = 'https://api.vrchat.cloud/api/1/users/{}/name'.format(username)
         try:
-            result = requests.get(url, headers=headers)
+            result = requests.get(url, headers=headers, verify=False)
             if result.status_code == 200:
                 """Prints the result of the request with the status code and formatted JSON"""
                 print("Status Code from VRChat API Server: "+ str(result.status_code))
@@ -144,7 +139,7 @@ def doesUserExists(username):
     print("\n[i] Checking if user exists...")
     url = 'https://api.vrchat.cloud/api/1/auth/exists?username={}'.format(username)
     try:
-        result = requests.get(url, headers=headers, params={'apiKey': apiKey})
+        result = requests.get(url, headers=headers, params={'apiKey': apiKey}, verify=False)
         if result.status_code == 200:
             """Prints the result of the request with the status code and formatted JSON"""
             print("Status Code from VRChat API Server: "+ str(result.status_code))
@@ -153,7 +148,7 @@ def doesUserExists(username):
                 print("\n[i] User called: '"+ str(username) +"' DOES exists")
                 return str(username)
             else:
-                log_manager("[!] User called: '"+ str(username) +"' DOES NOT exists\n[!] Exiting...", "error")
+                logManager.logger("[!] User called: '"+ str(username) +"' DOES NOT exists\n[!] Exiting...", "error")
                 return False
         else:
             raise InvalidResponse("\n[!] Invalid response from VRChat APIs\n[!] Status Code: "+ str(result.status_code))
@@ -168,20 +163,47 @@ def getAuthCookie(apiKey):
     url = 'https://api.vrchat.cloud/api/1/auth'
     try:
         headers["Cookie"] = "apiKey=" + apiKey
-        print("[!] DISCLAIMER:\n[!] Your Username and Password will be sended to VRChat API Servers,\n[!] they won't be send or saved to the creator of this launcher!")
-        result = requests.get(url, headers=headers, auth=(str(input("[i] Username: ")), str(getpass.getpass("[i] Password: "))))
+        message = ["[i] A login is required for getting an Authorization Cookie ",
+            "    which is necessary for converting a username into UserID ",
+            "" ,
+            "[!] DISCLAIMER: ",
+            "[!] Your Username and Password will be sent to VRChat API Servers. ",
+            "[!] They won't be sent or saved to the creator of this launcher! ",
+            "[!] If you're not sure about logging in with your account, use a burner account. ",
+            "", 
+            "[i] If you want to continue, insert your credentials, otherwise feel free to exit."]
+        
+        utils.printBox(message)
+        result = requests.get(url, headers=headers, auth=(str(input("[i] Enter your Username: ")),
+            str(getpass.getpass("[i] Enter your password: "))), verify=False)
         if result.status_code == 200:
-            #Prints the result of the request with the status code and formatted JSON
-            print("Status Code from VRChat API Server: "+ str(result.status_code))
-            #Extract the value called apiKey from the JSON and print it
             if(result.json()['token']) != None:
                 authToken = result.json()['token']
                 print("[i] Auth token: {}".format(authToken))
                 return authToken
             else:
                 raise APIKeyError("[!] API key not found in VRChat APIs")
+        elif result.status_code == 401:
+            if(result.json()['error']['message'] == '"Requires Two-Factor Authentication"'):
+                # When 2FA code is ready, uncomment this code
+                """message = ["[!] Two-Factor Authentication is enabled on this account. ",
+                    "    Please insert your two-factor code to continue."]"""
+                message = ["[!] Two-Factor Authentication is enabled on this account, ",
+                    "    but this launcher doesn't support it yet. ",
+                    "    If you have a burner account, please use it."]
+                os.system('cls')
+                utils.printBox(message)
+            elif (result.json()['error']['message'] == '"Invalid Username/Email or Password"'):
+                message = ["[!] Invalid credentials. ", "    Please try again."]
+                os.system('cls')
+                utils.printBox(message)
+                return False
+            else:
+                logManager.logger("[!] Error: " + str(result.json()['error']['message']), "error")
+                return False
         else:
-            raise InvalidResponse("\n[!] Invalid response from VRChat APIs\n[!] Status Code: "+ str(result.status_code) +"\n[!] Content: "+ str(result.content))
+            raise InvalidResponse("\n[!] Invalid response from VRChat APIs\n[!] Status Code: "+ str(result.status_code)
+             +"\n[!] Content: "+ str(result.content))
     except requests.exceptions.RequestException as e:
         print("[!] Error: " + str(e))
         return None
@@ -191,16 +213,13 @@ def getWorldNamebyID(worldID):
     print("\n[i] Checking world name...")
     url = 'https://api.vrchat.cloud/api/1/worlds/{}'.format(worldID)
     try:
-        result = requests.get(url, headers=headers, params={'apiKey': apiKey})
+        result = requests.get(url, headers=headers, params={'apiKey': apiKey}, verify=False)
         if result.status_code == 200:
-            """Prints the result of the request with the status code and formatted JSON"""
-            print("Status Code from VRChat API Server: "+ str(result.status_code))
-            """Extract the value called apiKey from the JSON and print it"""
             if(result.json()['id']) != None:
-                print("\n[i] World name is: {}".format(result.json()['name']))
+                #print("\n[i] World name is: {}".format(result.json()['name']))
                 return result.json()['name']
             else:
-                log_manager("[!] World by ID: '"+ str(worldID) +"' DOES NOT exists\n[!] Exiting...", "error")
+                logManager.logger("[!] World by ID: '"+ str(worldID) +"' DOES NOT exists\n[!] Exiting...", "error")
                 return False
         else:
             raise InvalidResponse("\n[!] Invalid response from VRChat APIs\n[!] Status Code: "+ str(result.status_code))
@@ -209,5 +228,9 @@ def getWorldNamebyID(worldID):
         return None
 
 
-#getUserInfo(apiKey, "btangent")
-#getAuthCookie(str(input("[i] Username: ")), str(input("[i] Password: ")), apiKey)
+
+    
+
+
+
+
