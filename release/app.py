@@ -43,10 +43,10 @@ def getMaxStr(lst):
 
 """Create a rectangle box with printable characters of a list"""
 def printBox(list):
-    print("+" + "-" * (len(getMaxStr(list)) + 2) + "+")
+    print("+" + "-" * (len(getMaxStr(list)) + 3) + "+")
     for i in list:
-        print("| " + i + " " * (len(getMaxStr(list)) - len(i)) + " |")
-    print("+" + "-" * (len(getMaxStr(list)) + 2) + "+")
+        print("| " + i + " " * (len(getMaxStr(list)) - len(i)) + "  |")
+    print("+" + "-" * (len(getMaxStr(list)) + 3) + "+")
 
 
 """
@@ -208,19 +208,34 @@ def getAuthCookie(apiKey):
             "[i] If you want to continue, insert your credentials, otherwise feel free to exit."]
         
         printBox(message)
-        result = requests.get(url, headers=headers, auth=(str(input("[i] Enter your Username: ")), str(getpass.getpass("[i] Enter your password: "))), verify=False)
+        result = requests.get(url, headers=headers, auth=(str(input("[i] Enter your Username: ")),
+            str(getpass.getpass("[i] Enter your password: "))), verify=False)
         if result.status_code == 200:
-            #Prints the result of the request with the status code and formatted JSON
-            print("Status Code from VRChat API Server: "+ str(result.status_code))
-            #Extract the value called apiKey from the JSON and print it
             if(result.json()['token']) != None:
                 authToken = result.json()['token']
                 print("[i] Auth token: {}".format(authToken))
                 return authToken
             else:
                 raise APIKeyError("[!] API key not found in VRChat APIs")
+        elif result.status_code == 401:
+            if(result.json()['error']['message'] == "Requires Two-Factor Authentication"):
+                # When 2FA code is ready, uncomment this code
+                """message = ["[!] Two-Factor Authentication is enabled on this account. ",
+                    "    Please insert your two-factor code to continue."]"""
+                message = ["[!] Two-Factor Authentication is enabled on this account, ",
+                    "    but this launcher doesn't support it yet. ",
+                    "    If you have a burner account, please use it."]
+                printBox(message)
+            elif (result.json()['error']['message'] == "Invalid username or password"):
+                message = ["[!] Invalid credentials. ", "    Please try again."]
+                printBox(message)
+                return False
+            else:
+                log_manager("[!] Error: " + str(result.json()['error']['message']), "error")
+                return False
         else:
-            raise InvalidResponse("\n[!] Invalid response from VRChat APIs\n[!] Status Code: "+ str(result.status_code) +"\n[!] Content: "+ str(result.content))
+            raise InvalidResponse("\n[!] Invalid response from VRChat APIs\n[!] Status Code: "+ str(result.status_code)
+             +"\n[!] Content: "+ str(result.content))
     except requests.exceptions.RequestException as e:
         print("[!] Error: " + str(e))
         return None
@@ -232,11 +247,8 @@ def getWorldNamebyID(worldID):
     try:
         result = requests.get(url, headers=headers, params={'apiKey': apiKey}, verify=False)
         if result.status_code == 200:
-            """Prints the result of the request with the status code and formatted JSON"""
-            print("Status Code from VRChat API Server: "+ str(result.status_code))
-            """Extract the value called apiKey from the JSON and print it"""
             if(result.json()['id']) != None:
-                print("\n[i] World name is: {}".format(result.json()['name']))
+                #print("\n[i] World name is: {}".format(result.json()['name']))
                 return result.json()['name']
             else:
                 log_manager("[!] World by ID: '"+ str(worldID) +"' DOES NOT exists\n[!] Exiting...", "error")
@@ -494,11 +506,15 @@ def lauchVRChat():
     """print(world_instances(int(input("Enter a world instance ID: "))))"""
 
     """Create a url with the world ID and world instance ID given by the user """
+    os.system("cls")
     print("\n")
-    print("[i] Launching world {} in region {} in a {} instance".format(getWorldNamebyID(worldID), regionID, instanceID))
+    message = ["[i] Launching world... ","    Name: {}".format(getWorldNamebyID(worldID)),
+        "    Region: {}".format(regionID.upper()),
+        "    Instance type: {}".format(instanceID)]
+    printBox(message)
     print(worldURL)
     """Open the url in the default browser """
-    os.system("start \"\" \"{}\"".format(worldURL))
+    #os.system("start \"\" \"{}\"".format(worldURL))
 
     log_manager("Log Manager ended!", "success")
 
@@ -510,12 +526,12 @@ def lauchVRChat():
 ################################################################################
 
 
-
 """
 Create the main function that uses the log_manager function
 """
 if __name__ == "__main__":
     main()
+
     
 
 
