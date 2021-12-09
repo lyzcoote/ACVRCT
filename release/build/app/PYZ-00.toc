@@ -1,24 +1,44 @@
 ('C:\\Users\\Lyz '
  'Coote\\Documents\\GitHub\\VRChat-Py-Launcher\\release\\build\\app\\PYZ-00.pyz',
- [('inspect',
+ [('os',
    'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\inspect.py',
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\os.py',
    'PYMODULE'),
-  ('importlib',
+  ('subprocess',
    'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\importlib\\__init__.py',
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\subprocess.py',
    'PYMODULE'),
-  ('importlib.abc',
+  ('selectors',
    'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\importlib\\abc.py',
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\selectors.py',
    'PYMODULE'),
-  ('importlib._bootstrap_external',
+  ('threading',
    'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\importlib\\_bootstrap_external.py',
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\threading.py',
    'PYMODULE'),
-  ('importlib._bootstrap',
+  ('_threading_local',
    'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\importlib\\_bootstrap.py',
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\_threading_local.py',
+   'PYMODULE'),
+  ('contextlib',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\contextlib.py',
+   'PYMODULE'),
+  ('signal',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\signal.py',
+   'PYMODULE'),
+  ('_strptime',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\_strptime.py',
+   'PYMODULE'),
+  ('datetime',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\datetime.py',
+   'PYMODULE'),
+  ('calendar',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\calendar.py',
    'PYMODULE'),
   ('argparse',
    'c:\\users\\lyz '
@@ -39,6 +59,46 @@
   ('struct',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\struct.py',
+   'PYMODULE'),
+  ('ntpath',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\ntpath.py',
+   'PYMODULE'),
+  ('string',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\string.py',
+   'PYMODULE'),
+  ('genericpath',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\genericpath.py',
+   'PYMODULE'),
+  ('posixpath',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\posixpath.py',
+   'PYMODULE'),
+  ('stat',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\stat.py',
+   'PYMODULE'),
+  ('inspect',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\inspect.py',
+   'PYMODULE'),
+  ('importlib',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\importlib\\__init__.py',
+   'PYMODULE'),
+  ('importlib.abc',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\importlib\\abc.py',
+   'PYMODULE'),
+  ('importlib._bootstrap_external',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\importlib\\_bootstrap_external.py',
+   'PYMODULE'),
+  ('importlib._bootstrap',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\importlib\\_bootstrap.py',
    'PYMODULE'),
   ('ast',
    'c:\\users\\lyz '
@@ -68,77 +128,13 @@
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\pkgutil.py',
    'PYMODULE'),
-  ('ntpath',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\ntpath.py',
-   'PYMODULE'),
-  ('string',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\string.py',
-   'PYMODULE'),
-  ('genericpath',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\genericpath.py',
-   'PYMODULE'),
-  ('stat',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\stat.py',
-   'PYMODULE'),
   ('importlib.util',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\importlib\\util.py',
    'PYMODULE'),
-  ('contextlib',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\contextlib.py',
-   'PYMODULE'),
-  ('typing',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\typing.py',
-   'PYMODULE'),
   ('_py_abc',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\_py_abc.py',
-   'PYMODULE'),
-  ('_strptime',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\_strptime.py',
-   'PYMODULE'),
-  ('calendar',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\calendar.py',
-   'PYMODULE'),
-  ('quopri',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\quopri.py',
-   'PYMODULE'),
-  ('getopt',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\getopt.py',
-   'PYMODULE'),
-  ('bz2',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\bz2.py',
-   'PYMODULE'),
-  ('threading',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\threading.py',
-   'PYMODULE'),
-  ('_threading_local',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\_threading_local.py',
-   'PYMODULE'),
-  ('_compression',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\_compression.py',
-   'PYMODULE'),
-  ('base64',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\base64.py',
-   'PYMODULE'),
-  ('stringprep',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\stringprep.py',
    'PYMODULE'),
   ('tracemalloc',
    'c:\\users\\lyz '
@@ -163,10 +159,6 @@
   ('unittest.signals',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\unittest\\signals.py',
-   'PYMODULE'),
-  ('signal',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\signal.py',
    'PYMODULE'),
   ('unittest.main',
    'c:\\users\\lyz '
@@ -204,6 +196,10 @@
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\pdb.py',
    'PYMODULE'),
+  ('getopt',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\getopt.py',
+   'PYMODULE'),
   ('pydoc',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\pydoc.py',
@@ -215,10 +211,6 @@
   ('socket',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\socket.py',
-   'PYMODULE'),
-  ('selectors',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\selectors.py',
    'PYMODULE'),
   ('shutil',
    'c:\\users\\lyz '
@@ -240,9 +232,17 @@
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\gzip.py',
    'PYMODULE'),
+  ('_compression',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\_compression.py',
+   'PYMODULE'),
   ('lzma',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\lzma.py',
+   'PYMODULE'),
+  ('bz2',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\bz2.py',
    'PYMODULE'),
   ('email.message',
    'c:\\users\\lyz '
@@ -280,9 +280,25 @@
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\email\\generator.py',
    'PYMODULE'),
+  ('random',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\random.py',
+   'PYMODULE'),
+  ('bisect',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\bisect.py',
+   'PYMODULE'),
+  ('hashlib',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\hashlib.py',
+   'PYMODULE'),
   ('email._encoded_words',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\email\\_encoded_words.py',
+   'PYMODULE'),
+  ('base64',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\base64.py',
    'PYMODULE'),
   ('email.charset',
    'c:\\users\\lyz '
@@ -328,6 +344,10 @@
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\email\\feedparser.py',
    'PYMODULE'),
+  ('quopri',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\quopri.py',
+   'PYMODULE'),
   ('uu',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\uu.py',
@@ -347,10 +367,6 @@
   ('socketserver',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\socketserver.py',
-   'PYMODULE'),
-  ('posixpath',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\posixpath.py',
    'PYMODULE'),
   ('mimetypes',
    'c:\\users\\lyz '
@@ -384,10 +400,6 @@
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\tty.py',
    'PYMODULE'),
-  ('subprocess',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\subprocess.py',
-   'PYMODULE'),
   ('tempfile',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\tempfile.py',
@@ -411,6 +423,82 @@
   ('distutils',
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\distutils\\__init__.py',
+   'PYMODULE'),
+  ('platform',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\platform.py',
+   'PYMODULE'),
+  ('plistlib',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\plistlib.py',
+   'PYMODULE'),
+  ('xml.parsers.expat',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\xml\\parsers\\expat.py',
+   'PYMODULE'),
+  ('xml.parsers',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\xml\\parsers\\__init__.py',
+   'PYMODULE'),
+  ('xml',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\xml\\__init__.py',
+   'PYMODULE'),
+  ('xml.sax.expatreader',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\xml\\sax\\expatreader.py',
+   'PYMODULE'),
+  ('xml.sax.saxutils',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\xml\\sax\\saxutils.py',
+   'PYMODULE'),
+  ('urllib.request',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\urllib\\request.py',
+   'PYMODULE'),
+  ('getpass',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\getpass.py',
+   'PYMODULE'),
+  ('nturl2path',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\nturl2path.py',
+   'PYMODULE'),
+  ('ftplib',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\ftplib.py',
+   'PYMODULE'),
+  ('netrc',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\netrc.py',
+   'PYMODULE'),
+  ('http.cookiejar',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\http\\cookiejar.py',
+   'PYMODULE'),
+  ('urllib.response',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\urllib\\response.py',
+   'PYMODULE'),
+  ('urllib.error',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\urllib\\error.py',
+   'PYMODULE'),
+  ('xml.sax',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\xml\\sax\\__init__.py',
+   'PYMODULE'),
+  ('xml.sax.handler',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\xml\\sax\\handler.py',
+   'PYMODULE'),
+  ('xml.sax._exceptions',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\xml\\sax\\_exceptions.py',
+   'PYMODULE'),
+  ('xml.sax.xmlreader',
+   'c:\\users\\lyz '
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\xml\\sax\\xmlreader.py',
    'PYMODULE'),
   ('runpy',
    'c:\\users\\lyz '
@@ -456,93 +544,25 @@
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\fnmatch.py',
    'PYMODULE'),
-  ('platform',
+  ('stringprep',
    'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\platform.py',
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\stringprep.py',
    'PYMODULE'),
-  ('plistlib',
+  ('typing',
    'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\plistlib.py',
+   'coote\\appdata\\local\\programs\\python\\python37\\lib\\typing.py',
    'PYMODULE'),
-  ('xml.parsers.expat',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\xml\\parsers\\expat.py',
+  ('otherUtils',
+   'C:\\Users\\Lyz '
+   'Coote\\Documents\\GitHub\\VRChat-Py-Launcher\\release\\otherUtils.py',
    'PYMODULE'),
-  ('xml.parsers',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\xml\\parsers\\__init__.py',
+  ('apiHandler',
+   'C:\\Users\\Lyz '
+   'Coote\\Documents\\GitHub\\VRChat-Py-Launcher\\release\\apiHandler.py',
    'PYMODULE'),
-  ('xml',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\xml\\__init__.py',
-   'PYMODULE'),
-  ('xml.sax.expatreader',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\xml\\sax\\expatreader.py',
-   'PYMODULE'),
-  ('xml.sax.saxutils',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\xml\\sax\\saxutils.py',
-   'PYMODULE'),
-  ('urllib.request',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\urllib\\request.py',
-   'PYMODULE'),
-  ('nturl2path',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\nturl2path.py',
-   'PYMODULE'),
-  ('ftplib',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\ftplib.py',
-   'PYMODULE'),
-  ('netrc',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\netrc.py',
-   'PYMODULE'),
-  ('http.cookiejar',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\http\\cookiejar.py',
-   'PYMODULE'),
-  ('urllib.response',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\urllib\\response.py',
-   'PYMODULE'),
-  ('urllib.error',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\urllib\\error.py',
-   'PYMODULE'),
-  ('hashlib',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\hashlib.py',
-   'PYMODULE'),
-  ('bisect',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\bisect.py',
-   'PYMODULE'),
-  ('xml.sax',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\xml\\sax\\__init__.py',
-   'PYMODULE'),
-  ('xml.sax.handler',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\xml\\sax\\handler.py',
-   'PYMODULE'),
-  ('xml.sax._exceptions',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\xml\\sax\\_exceptions.py',
-   'PYMODULE'),
-  ('xml.sax.xmlreader',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\xml\\sax\\xmlreader.py',
-   'PYMODULE'),
-  ('datetime',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\datetime.py',
-   'PYMODULE'),
-  ('getpass',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\getpass.py',
+  ('logManager',
+   'C:\\Users\\Lyz '
+   'Coote\\Documents\\GitHub\\VRChat-Py-Launcher\\release\\logManager.py',
    'PYMODULE'),
   ('requests.models',
    'c:\\users\\lyz '
@@ -864,11 +884,11 @@
    'c:\\users\\lyz '
    'coote\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\requests\\packages.py',
    'PYMODULE'),
-  ('os',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\os.py',
+  ('urlCreator',
+   'C:\\Users\\Lyz '
+   'Coote\\Documents\\GitHub\\VRChat-Py-Launcher\\release\\urlCreator.py',
    'PYMODULE'),
-  ('random',
-   'c:\\users\\lyz '
-   'coote\\appdata\\local\\programs\\python\\python37\\lib\\random.py',
+  ('worldManager',
+   'C:\\Users\\Lyz '
+   'Coote\\Documents\\GitHub\\VRChat-Py-Launcher\\release\\worldManager.py',
    'PYMODULE')])

@@ -9,7 +9,6 @@ import os
 import worldManager as worldManager
 import urlCreator as urlHandler
 import apiHandler as APIHandler
-
 ################################################################################
 #                                                                              #
 #                                   Variables                                  #
@@ -72,10 +71,9 @@ def launcherMenu():
     """
     print("[i] Welcome to LyzCoote's World Launcher! \n")
     print("[i] You're running version: {}".format(version) + "\n")
-    print("[!] This script will help you launch worlds in the game.")
     print("[!] Please note that this script is not 100% accurate and will contain bug/crashes. \n")
     print("[i] Please select an option: ")
-    print("[i] 1 - Display author's GitHub Pagen")
+    print("[i] 1 - Display author's GitHub Page")
     print("[i] 2 - Display system informations ")
     print("[i] 3 - Display current VRChat API Key ")
     print("[i] 4 - Launch custom VRChat Instance ")
@@ -84,7 +82,7 @@ def launcherMenu():
     print("\n")
     while True:
         try:
-            option = int(input("[!] Please select an option: "))
+            option = int(input("[i] Please select an option: "))
             if option == 1:
                 print("\n")
                 os.system("cls")

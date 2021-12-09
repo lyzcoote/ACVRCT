@@ -184,16 +184,18 @@ def getAuthCookie(apiKey):
             else:
                 raise APIKeyError("[!] API key not found in VRChat APIs")
         elif result.status_code == 401:
-            if(result.json()['error']['message'] == "Requires Two-Factor Authentication"):
+            if(result.json()['error']['message'] == '"Requires Two-Factor Authentication"'):
                 # When 2FA code is ready, uncomment this code
                 """message = ["[!] Two-Factor Authentication is enabled on this account. ",
                     "    Please insert your two-factor code to continue."]"""
                 message = ["[!] Two-Factor Authentication is enabled on this account, ",
                     "    but this launcher doesn't support it yet. ",
                     "    If you have a burner account, please use it."]
+                os.system('cls')
                 utils.printBox(message)
-            elif (result.json()['error']['message'] == "Invalid username or password"):
+            elif (result.json()['error']['message'] == '"Invalid Username/Email or Password"'):
                 message = ["[!] Invalid credentials. ", "    Please try again."]
+                os.system('cls')
                 utils.printBox(message)
                 return False
             else:
