@@ -58,6 +58,6 @@ ACVRCL uses the [MIT](https://choosealicense.com/licenses/mit/) license
 >**Note:** I am **not responsible** for any damage/malicious use made through the use of my code.
 
 >**ACVRCL is not sponsored** by, affiliated with or endorsed by **Unity Technologies, VRChat Inc. or its affiliates**.  
-"Unity" is a trademark or a [registered trademark[(https://unity.com/legal/trademarks) of **Unity Technologies** or its affiliates in the U.S. and elsewhere.
+"Unity" is a trademark or a [registered trademark](https://unity.com/legal/trademarks) of **Unity Technologies** or its affiliates in the U.S. and elsewhere.
 "VRChat Inc."  is a trademark or a [registered trademark](https://tmsearch.uspto.gov/bin/showfield?f=doc&state=4802:yugmvk.2.2) of **VRChat Inc. Corporation** or its affiliates in the U.S. and elsewhere.
 
