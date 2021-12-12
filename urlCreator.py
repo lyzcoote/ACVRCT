@@ -24,21 +24,21 @@ def createCustomSession():
     """
     wm.displayInstanceTypes()
     print("\n")
-    instanceID = wm.getInstanceType(int(input("Enter the world instance type: ")))
+    instanceID = wm.getInstanceType(int(input("[i] Enter the world instance type: ")))
     os.system("cls")
     print(wm.displayWorldNames())
     print("\n")
-    worldID = wm.getWorldID(int(input("Enter a world ID: ")))
+    worldID = wm.getWorldID(int(input("[i] Enter a world ID: ")))
     os.system("cls")
     print(wm.displayWorldRegions())
     print("\n")
-    regionID = wm.getWorldRegion(int(input("Enter a world region: ")))
+    regionID = wm.getWorldRegion(int(input("[i] Enter a world region: ")))
     os.system("cls")
 
     if(instanceID == "public"):
         worldURL = "vrchat://launch?id={}:{}~region({})".format(worldID, random.randint(300, 1000), regionID)
     else:
-        userID = APIHandler.getUserID(APIHandler.getCachedAPIKey(), str(input("Enter your username: ")))
+        userID = APIHandler.getUserID(APIHandler.getCachedAPIKey(), str(input("[i] Enter the username of the session owner: ")))
         worldURL = "vrchat://launch?id={}:{}~{}({})~region({})~nonce(314e6a52-3125-4722-b313-f2666a094c43)".format(worldID, random.randint(300, 1000), instanceID, userID, regionID)
 
     """Create a url with the world ID and world instance ID given by the user """
