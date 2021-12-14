@@ -25,6 +25,9 @@ def createCustomSession():
     wm.displayInstanceTypes()
     print("\n")
     instanceID = wm.getInstanceType(int(input("[i] Enter the world instance type: ")))
+    if(instanceID == False):
+        logManager.logger("Invalid instance type.", "error")
+        exit()
     os.system("cls")
     print(wm.displayWorldNames())
     print("\n")
@@ -37,9 +40,14 @@ def createCustomSession():
 
     if(instanceID == "public"):
         worldURL = "vrchat://launch?id={}:{}~region({})".format(worldID, random.randint(300, 1000), regionID)
-    else:
+    elif(instanceID == "private"):
         userID = APIHandler.getUserID(APIHandler.getCachedAPIKey(), str(input("[i] Enter the username of the session owner: ")))
         worldURL = "vrchat://launch?id={}:{}~{}({})~region({})~nonce(314e6a52-3125-4722-b313-f2666a094c43)".format(worldID, random.randint(300, 1000), instanceID, userID, regionID)
+    elif(instanceID == False):
+        return False
+    else:
+        logManager.logger("Invalid instance type.", "error")
+        return False
 
     """Create a url with the world ID and world instance ID given by the user """
     os.system("cls")
@@ -48,8 +56,8 @@ def createCustomSession():
         "    Region: {}".format(regionID.upper()),
         "    Instance type: {}".format(instanceID)]
     otherUtils.printBox(message)
-    print(worldURL)
+    #print(worldURL)
     """Open the url in the default browser """
-    os.system("start \"\" \"{}\"".format(worldURL))
+    #os.system("start \"\" \"{}\"".format(worldURL))
 
     logManager.logger("Log Manager ended!", "success")

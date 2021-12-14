@@ -9,6 +9,7 @@ import os
 import worldManager as worldManager
 import urlCreator as urlHandler
 import apiHandler as APIHandler
+import logManager as logManager
 ################################################################################
 #                                                                              #
 #                                   Variables                                  #
@@ -76,9 +77,10 @@ def launcherMenu():
     print("[i] 1 - Display author's GitHub Page")
     print("[i] 2 - Display system informations ")
     print("[i] 3 - Display current VRChat API Key ")
-    print("[i] 4 - Launch custom VRChat Instance ")
-    print("[i] 5 - Launch Home VRChat World ")
-    print("[i] 6 - Exit \n")
+    print("[i] 4 - Display a user info ")
+    print("[i] 5 - Launch custom VRChat Instance ")
+    print("[i] 6 - Launch Home VRChat World ")
+    print("[i] 7 - Exit \n")
     print("\n")
     while True:
         try:
@@ -101,30 +103,37 @@ def launcherMenu():
             elif option == 3:
                 print("\n")
                 os.system("cls")
-                print("[i] The current VRChat API Key is: {}".format(APIHandler.getCachedAPIKey()))
+                logManager.logger("The current VRChat API Key is: {}".format(APIHandler.getCachedAPIKey()), "info")
                 os.system("pause")
                 os.system("cls")
                 launcherMenu()
             elif option == 4:
+                print("\n")
+                os.system("cls")
+                APIHandler.getUserInfo(APIHandler.getCachedAPIKey(), str(input("[i] Please enter a username: ")))
+                os.system("pause")
+                os.system("cls")
+                launcherMenu()
+            elif option == 5:
                 os.system("cls")
                 urlHandler.createCustomSession()
                 break
-            elif option == 5:
+            elif option == 6:
                 os.system("cls")
                 worldManager.lauchHomeWorld()
                 break
-            elif option == 6:
+            elif option == 7:
                 print("\n")
-                print("[!] Goodbye!")
+                logManager.logger("Goodbye!", "info")
                 print("\n")
-                break
+                exit()
             else:
                 print("\n")
-                print("[!] Invalid option! Please try again. \n")
+                logManager.logger("Invalid option! Please try again. \n", "error")
                 print("\n")
                 continue
         except ValueError:
             print("\n")
-            print("[!] Invalid option! Please try again. \n")
+            logManager.logger("Invalid option! Please try again. \n", "error")
             print("\n")
             continue

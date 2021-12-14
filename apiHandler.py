@@ -43,7 +43,8 @@ def getAPIKey():
     """
         Get API key from VRChat APIs
     """
-    print("\n[i] Getting API key...")
+    print("\n")
+    logManager.logger("Getting API key...", "info")
     url = 'https://api.vrchat.cloud/api/1/config'
     
     try:
@@ -58,7 +59,7 @@ def getAPIKey():
         else:
             raise InvalidResponse("\n[!] Invalid response from VRChat APIs\n[!] Status Code: "+ str(result.status_code))
     except requests.exceptions.RequestException as e:
-        print("[!] Error: " + str(e))
+        logManager.logger(str(e), "error")
         return None
         
 apiKey = getAPIKey()
@@ -71,20 +72,46 @@ def getUserInfo(apiKey, username):
         Get user info from VRChat APIs
     """
     if(doesUserExists(username)):
-        print("\n[i] Getting user info...")
+        os.system('cls')
+        print("\n")
+        logManager.logger("Getting user info...", "info")
         headers["Cookie"] = "apiKey=" + apiKey +str(";")+ "auth=" + getAuthCookie(apiKey)
         url = 'https://api.vrchat.cloud/api/1/users/{}/name'.format(username)
         try:
             result = requests.get(url, headers=headers)
             if result.status_code == 200:
                 if(result.json()['username']) != None:
-                    userInfo = [result.json()['id'], result.json()['username'], result.json()['displayName'], result.json()['currentAvatarImageUrl'], result.json()['state']]
-                    print("[i] Loading {} details...".format(username)+"\n")
-                    print("[i] User ID: {}".format(userInfo[0]+"\n"))
-                    print("[i] Username: {}".format(userInfo[1]+"\n"))
-                    print("[i] Display Name: {}".format(userInfo[2]+"\n"))
-                    print("[i] Avatar Image URL: {}".format(userInfo[3]+"\n"))
-                    print("[i] State: {}".format(userInfo[4]+"\n"))
+                    userInfo = [result.json()['id'], 
+                        result.json()['username'], 
+                        result.json()['displayName'],
+                        result.json()['last_login'], 
+                        result.json()['state'], 
+                        result.json()['allowAvatarCopying'], 
+                        result.json()['date_joined'],
+                        result.json()['last_platform']]
+                    if(userInfo[5] == True):
+                        userInfo[5] = "Yes"
+                    elif(userInfo[5] == False):
+                        userInfo[5] = "No"
+                    else:
+                        userInfo[5] = "Unknown"
+                    if(userInfo[3] == ""):
+                        userInfo[3] = "Unknown"
+                    if(userInfo[7] == "standalonewindows"):
+                        userInfo[7] = "Windows"
+                    elif(userInfo[7] == "android"):
+                        userInfo[7] = "Quest"
+                    os.system('cls')
+                    logManager.logger("Loading user info of user: {}".format(username), "info")
+                    message = ["[i] User ID: {}".format(userInfo[0]),
+                        "[i] Username: {}".format(userInfo[1]), 
+                        "[i] Display Name: {}".format(userInfo[2]),
+                        "[i] Is Avatar copying enabled?: {}".format(userInfo[5]), 
+                        "[i] Last Login: {}".format(userInfo[3]), 
+                        "[i] State: {}".format(userInfo[4]),
+                        "[i] Date Joined: {}".format(userInfo[6]),
+                        "[i] Last Platform: {}".format(userInfo[7])]
+                    utils.printBox(message)
                     return userInfo
                 else:
                     raise APIKeyError("[!] API key not found in VRChat APIs")
@@ -92,7 +119,7 @@ def getUserInfo(apiKey, username):
             else:
                 raise InvalidResponse("\n[!] Invalid response from VRChat APIs\n[!] Status Code: "+ str(result.status_code))
         except requests.exceptions.RequestException as e:
-            print("[!] Error: " + str(e))
+            logManager.logger(str(e), "error")
             return None
     else:
         return None

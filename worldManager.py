@@ -5,6 +5,7 @@
 ################################################################################
 
 import os as os
+import logManager as logManager
 
 ################################################################################
 #                                                                              #
@@ -59,8 +60,8 @@ def displayInstanceTypes():
     """
     Return a list of all the available instance types for creating a session in VRChat
     """
-    instance_list = ["0 - Public World", "1 - Friends World", "2 - Hidden World", "3 - Private World (Invite)", "4 - Private World (Solo)"]
-    print("[!] WARNING! Only public and private (solo) worlds are supported at this time. \n The other type of worlds are not available at this time.")
+    instance_list = ["0 - Public World", "1 - Friends+ World", "2 - Friends World", "3 - Private World (Invite)", "4 - Private World (Solo)"]
+    logManager.logger("Only Public and Private (Solo) instances are supported at this time. \nThe other type of instances are not available at this time.", "warning")
     print("\n")
     list(map(lambda x: print("{}".format(x)), instance_list))
 
@@ -83,12 +84,21 @@ def getInstanceType(instanceID):
 
     world_instances = {
         0: "public", #Public World
-        1: "friends", #Friends World
-        2: "hidden", #Hidden World
-        3: "private", #Private World
+        1: "friends+", #Friends World
+        2: "friends", #Hidden World
+        3: "private+", #Private World
         4: "private" #Private World
 
     }
+    if(world_instances[instanceID] == "friends+"):
+        logManager.logger("The instance Friends+ is not currently supported at this time.", "warning")
+        return False
+    elif(world_instances[instanceID] == "friends"):
+        logManager.logger("The instance Friends is not currently supported at this time.", "warning")
+        return False
+    elif(world_instances[instanceID] == "private+"):
+        logManager.logger("The instance Private+ is not currently supported at this time.", "warning")
+        return False
     return world_instances[instanceID]
 
 
@@ -110,9 +120,8 @@ def lauchHomeWorld():
     """
     Launch the home world
     """
-    print("[i] Launching home world...")
-    print("\n")
     os.system("cls")
-    os.system("start \"\" \"{}\"".format("vrchat://launch"))
+    logManager.logger("Launching home world...", "info")
     print("\n")
-    os.system("cls")
+    #os.system("start \"\" \"{}\"".format("vrchat://launch"))
+    print("\n")

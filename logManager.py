@@ -18,3 +18,5 @@ def logger(message, message_type):
         print("[{}] [WARNING]: {}".format(current_time, message))
     elif message_type == "success":
         print("[{}] [SUCCESS]: {}".format(current_time, message))
+    elif message_type == "info":
+        print("[{}] [INFO]: {}".format(current_time, message))
