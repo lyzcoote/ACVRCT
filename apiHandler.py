@@ -88,19 +88,47 @@ def getUserInfo(apiKey, username):
                         result.json()['state'], 
                         result.json()['allowAvatarCopying'], 
                         result.json()['date_joined'],
-                        result.json()['last_platform']]
+                        result.json()['last_platform'],
+                        result.json()['currentAvatarImageUrl'],
+                        result.json()['tags']]
+
                     if(userInfo[5] == True):
                         userInfo[5] = "Yes"
                     elif(userInfo[5] == False):
                         userInfo[5] = "No"
                     else:
                         userInfo[5] = "Unknown"
+                    
                     if(userInfo[3] == ""):
                         userInfo[3] = "Unknown"
+
                     if(userInfo[7] == "standalonewindows"):
                         userInfo[7] = "Windows"
                     elif(userInfo[7] == "android"):
                         userInfo[7] = "Quest"
+                    
+                    if(userInfo[9]):
+                        tagList = list()
+                        for tag in userInfo[9]:
+                            if(tag == "system_supporter"):
+                                tagList.append("System Supporter"+" ")
+                            elif(tag == "system_trust_veteran"):
+                                tagList.append("Veteran User"+ "")
+                            elif(tag == "system_trust_trusted"):
+                                tagList.append("Trusted User"+" ")
+                            elif(tag == "system_early_adopter"):
+                                tagList.append("Early Adopter"+" ")
+                            elif(tag == "system_trust_legend"):
+                                tagList.append("Legend User"+" ")
+
+                        userInfo[9] = tagList
+
+                    """
+                    Insert the tagList into the message List and print its with the printBox function
+                    """        
+                    
+
+
                     os.system('cls')
                     logManager.logger("Loading user info of user: {}".format(username), "info")
                     message = ["[i] User ID: {}".format(userInfo[0]),
@@ -110,7 +138,10 @@ def getUserInfo(apiKey, username):
                         "[i] Last Login: {}".format(userInfo[3]), 
                         "[i] State: {}".format(userInfo[4]),
                         "[i] Date Joined: {}".format(userInfo[6]),
-                        "[i] Last Platform: {}".format(userInfo[7])]
+                        "[i] Last Platform: {}".format(userInfo[7]),
+                        "[i] Current Avatar Image URL: {}".format(userInfo[8]),
+                        "[i] Tags: {}".format(userInfo[9][1])]
+
                     utils.printBox(message)
                     return userInfo
                 else:
