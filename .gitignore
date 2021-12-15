@@ -1,2 +1,21 @@
 
 *.pyc
+verpatch.exe
+vrc.ico
+acvrcl.spec
+build/acvrcl/acvrcl.exe
+build/acvrcl/acvrcl.exe.manifest
+build/acvrcl/acvrcl.pkg
+build/acvrcl/Analysis-00.toc
+build/acvrcl/base_library.zip
+*.toc
+*.pyz
+build/acvrcl/warn-acvrcl.txt
+build/acvrcl/xref-acvrcl.html
+cacert.pem
+dist/ACVRCL.zip
+*.pyd
+dist/acvrcl/ACVRCL.exe
+*.dll
+dist/acvrcl/base_library.zip
+dist/Run ACVRCL.bat
