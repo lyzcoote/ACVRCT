@@ -10,6 +10,7 @@ These are the main features about ACVRCL:
 	- Choose the Owner of the created instance (If you choose the Instance Type to be anything other than Public)
 	- Choose the Instance Region (Europe, United States West, United States East and Japan)
 - Launch into your Default Home in a Private Session (No Invite)
+- See some details about a specific user given his UserID
 
 
 
