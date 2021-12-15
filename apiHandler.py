@@ -205,9 +205,9 @@ def getAuthCookie(apiKey):
             "    which is necessary for converting a username into UserID ",
             "" ,
             "[!] DISCLAIMER: ",
-            "[!] Your Username and Password will be sent to VRChat API Servers. ",
-            "[!] They won't be sent or saved to the creator of this launcher! ",
-            "[!] If you're not sure about logging in with your account, use a burner account. ",
+            "    Your Username and Password will be sent to VRChat API Servers. ",
+            "    They won't be sent or saved to the creator of this launcher! ",
+            "    If you're not sure about logging in with your account, use a burner account. ",
             "", 
             "[i] If you want to continue, insert your credentials, otherwise feel free to exit."]
         

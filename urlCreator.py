@@ -58,6 +58,6 @@ def createCustomSession():
     otherUtils.printBox(message)
     #print(worldURL)
     """Open the url in the default browser """
-    #os.system("start \"\" \"{}\"".format(worldURL))
+    os.system("start \"\" \"{}\"".format(worldURL))
 
     logManager.logger("Log Manager ended!", "success")

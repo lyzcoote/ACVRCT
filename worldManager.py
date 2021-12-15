@@ -123,5 +123,5 @@ def lauchHomeWorld():
     os.system("cls")
     logManager.logger("Launching home world...", "info")
     print("\n")
-    #os.system("start \"\" \"{}\"".format("vrchat://launch"))
+    os.system("start \"\" \"{}\"".format("vrchat://launch"))
     print("\n")
