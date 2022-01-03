@@ -19,3 +19,4 @@ dist/acvrcl/ACVRCL.exe
 *.dll
 dist/acvrcl/base_library.zip
 dist/Run ACVRCL.bat
+cookies.json

@@ -26,7 +26,7 @@ data['cookies'] = []
 
 def writeAuthCookie(cookieString):
     """
-    Write the cookie to the file
+    Write the AuthCookie to the file
     """
     data['cookies'].append({
     'name': 'AuthCookie',
@@ -40,7 +40,7 @@ def writeAuthCookie(cookieString):
 
 def write2FAAuthCookie(cookieString):
     """
-    Write the cookie to the file
+    Write the 2FAAuthCookie to the file
     """
     data['cookies'].append({
     'name': '2FAAuthCookie',
@@ -54,7 +54,7 @@ def write2FAAuthCookie(cookieString):
 
 def checkifAuthCookieFileExists():
     """
-    Check if the cookie file exists
+    Check if the AuthCookie file exists
     """
     if os.path.isfile('cookies.json'):
         return True
@@ -65,20 +65,27 @@ def checkifAuthCookieExists():
     """
     Check if the cookie is valid
     """
-    if checkifAuthCookieFileExists():
+    if checkifAuthCookieFileExists() == True:
         cookieFile = open('cookies.json', 'r')
         data = json.load(cookieFile)
         if data['cookies'] != []:
             return True
+        return None
+    else:
         return False
 
 def retriveAuthCookieFromFile():
-    if checkifAuthCookieFileExists():
+    """
+    Retrive the AuthCookie from the file
+    """
+    if checkifAuthCookieFileExists() == True:
         cookieFile = open('cookies.json', 'r')
         data = json.load(cookieFile)
         if data['cookies'] != []:
             authCookie = data['cookies'][0]['value']
             return authCookie
+        return None
+    else:
         return False
 
     

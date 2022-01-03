@@ -61,6 +61,12 @@ def display2FADisclaimer():
             "    Please insert your two-factor code to continue."]
     printBox(message)
 
+def displayUsernameNotFound():
+    message = ["[!] The username you entered does not match any created account, ",
+                            "    If you belive that username exits, please try again."]
+    os.system('cls')
+    printBox(message)
+
 def generateRandomUUID():
     import uuid
     return uuid.uuid4()

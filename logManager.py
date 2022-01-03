@@ -11,7 +11,9 @@ def logger(message, message_type):
     from datetime import datetime
     now = datetime.now()
 
+    """Gets the current time"""
     current_time = now.strftime("%H:%M:%S")
+    
     if message_type == "error":
         print("["f"{current_time}] [ERROR]: "f"{message}")
     elif message_type == "warning":
