@@ -39,10 +39,10 @@ def createCustomSession():
     os.system("cls")
 
     if(instanceID == "public"):
-        worldURL = "vrchat://launch?id={}:{}~region({})".format(worldID, random.randint(300, 1000), regionID)
+        worldURL = "vrchat://launch?id="f"{worldID}:"f"{random.randint(300, 1000)}""~region("f"{regionID})"
     elif(instanceID == "private"):
         userID = APIHandler.getUserID(APIHandler.getCachedAPIKey(), str(input("[i] Enter the username of the session owner: ")))
-        worldURL = "vrchat://launch?id={}:{}~{}({})~region({})~nonce(314e6a52-3125-4722-b313-f2666a094c43)".format(worldID, random.randint(300, 1000), instanceID, userID, regionID)
+        worldURL = "vrchat://launch?id="f"{worldID}"":"f"{random.randint(300, 1000)}""~"f"{instanceID}""("f"{userID}"")~region("f"{regionID}"")~nonce("f"{otherUtils.generateRandomUUID()}"")"
     elif(instanceID == False):
         return False
     else:
@@ -52,12 +52,12 @@ def createCustomSession():
     """Create a url with the world ID and world instance ID given by the user """
     os.system("cls")
     print("\n")
-    message = ["[i] Launching world... ","    Name: {}".format(APIHandler.getWorldNamebyID(worldID)),
-        "    Region: {}".format(regionID.upper()),
-        "    Instance type: {}".format(instanceID)]
+    message = ["[i] Launching world... ","    Name: "f"{APIHandler.getWorldNamebyID(worldID)}",
+        "    Region: "f"{regionID.upper()}",
+        "    Instance type: "f"{instanceID}"]
     otherUtils.printBox(message)
     #print(worldURL)
     """Open the url in the default browser """
-    os.system("start \"\" \"{}\"".format(worldURL))
+    os.system("start \"\" \""f"{worldURL}\"")
 
     logManager.logger("Log Manager ended!", "success")

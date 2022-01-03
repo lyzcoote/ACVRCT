@@ -76,7 +76,7 @@ def getUserInfo(apiKey, username):
         print("\n")
         logManager.logger("Getting user info...", "info")
         headers["Cookie"] = "apiKey=" + apiKey +str(";")+ "auth=" + getAuthCookie(apiKey)
-        url = 'https://api.vrchat.cloud/api/1/users/{}/name'.format(username)
+        url = "https://api.vrchat.cloud/api/1/users/"f"{username}""/name"
         try:
             result = requests.get(url, headers=headers)
             if result.status_code == 200:
@@ -109,16 +109,16 @@ def getUserInfo(apiKey, username):
                     
                     
                     os.system('cls')
-                    logManager.logger("Loading user info of user: {}".format(username), "info")
-                    message = ["[i] User ID: {}".format(userInfo[0]),
-                        "[i] Username: {}".format(userInfo[1]), 
-                        "[i] Display Name: {}".format(userInfo[2]),
-                        "[i] Is Avatar copying enabled?: {}".format(userInfo[5]), 
-                        "[i] Last Login: {}".format(userInfo[3]), 
-                        "[i] State: {}".format(userInfo[4]),
-                        "[i] Date Joined: {}".format(userInfo[6]),
-                        "[i] Last Platform: {}".format(userInfo[7]),
-                        "[i] Current Avatar Image URL: {}".format(userInfo[8]),
+                    logManager.logger("Loading user info of user: {}", "info")
+                    message = ["[i] User ID: "f"{userInfo[0]}",
+                        "[i] Username: "f"{userInfo[1]}", 
+                        "[i] Display Name: "f"{userInfo[2]}",
+                        "[i] Is Avatar copying enabled?: "f"{userInfo[5]}", 
+                        "[i] Last Login: "f"{userInfo[3]}", 
+                        "[i] State: "f"{userInfo[4]}",
+                        "[i] Date Joined: "f"{userInfo[6]}",
+                        "[i] Last Platform: "f"{userInfo[7]}",
+                        "[i] Current Avatar Image URL: "f"{userInfo[8]}",
                         "[i] Current User Ranks: "]
 
                     if(userInfo[9]):
@@ -156,13 +156,13 @@ def getUserID(apiKey, username):
     """
     print("\n[i] Getting user info...")
     headers["Cookie"] = "apiKey=" + apiKey +str(";")+ "auth=" + getAuthCookie(apiKey)
-    url = 'https://api.vrchat.cloud/api/1/users/{}/name'.format(username)
+    url = "https://api.vrchat.cloud/api/1/users/"f"{username}/name"
     try:
         result = requests.get(url, headers=headers)
         if result.status_code == 200:
             if(result.json()['username']) != None:
                 userInfo = result.json()['id']
-                print("[i] User ID: {}".format(userInfo+"\n"))
+                print("[i] User ID: "f"{userInfo}"+"\n")
                 return userInfo
             else:
                 raise APIKeyError("[!] API key not found in VRChat APIs")
@@ -178,7 +178,7 @@ def getUserID(apiKey, username):
 def doesUserExists(username):
     """"Asks for the user to insert the username of the user to check if exists"""
     print("\n[i] Checking if user exists...")
-    url = 'https://api.vrchat.cloud/api/1/auth/exists?username={}'.format(username)
+    url = "https://api.vrchat.cloud/api/1/auth/exists?username="f"{username}"
     try:
         result = requests.get(url, headers=headers, params={'apiKey': apiKey})
         if result.status_code == 200:
@@ -194,57 +194,30 @@ def doesUserExists(username):
         print("[!] Error: " + str(e))
         return None
 
-
 def getAuthCookie(apiKey):
         #Get auth cookie from VRChat APIs
     print("\n[i] Getting auth cookie...")
     url = 'https://api.vrchat.cloud/api/1/auth'
     try:
         headers["Cookie"] = "apiKey=" + apiKey
-        message = ["[i] A login is required for getting an Authorization Cookie ",
-            "    which is necessary for converting a username into UserID ",
-            "" ,
-            "[!] DISCLAIMER: ",
-            "    Your Username and Password will be sent to VRChat API Servers. ",
-            "    They won't be sent or saved to the creator of this launcher! ",
-            "    If you're not sure about logging in with your account, use a burner account. ",
-            "", 
-            "[i] If you want to continue, insert your credentials, otherwise feel free to exit."]
-        
-        utils.printBox(message)
+        utils.displayLoginDisclaimer()
         username = input("[i] Username: ")
         password = getpass.getpass("[i] Password: ")
         if(doesUserExists(username)):
             print("\n[i] Logging in...")
             result = requests.get(url, headers=headers, auth=(str(username),str(password)))
+            if result.cookies['auth']:
+                logManager.logger("[i] Got Auth Cookie!", "success")
+                logManager.logger("[i] Auth Cookie: " + str(result.cookies['auth']), "success")
+                return result.cookies['auth']
             if result.status_code == 200:
-                if(result.json()['token']) != None:
-                    authToken = result.json()['token']
-                    print("[i] Auth token: {}".format(authToken))
-                    return authToken
-                else:
-                    raise APIKeyError("[!] API key not found in VRChat APIs")
+                logManager.logger("Login successful!", "success")
             elif result.status_code == 401:
-                if(result.json()['error']['message'] == '"Requires Two-Factor Authentication"'):
-                    # When 2FA code is ready, uncomment this code
-                    """message = ["[!] Two-Factor Authentication is enabled on this account. ",
-                        "    Please insert your two-factor code to continue."]"""
-                    message = ["[!] Two-Factor Authentication is enabled on this account, ",
-                        "    but this launcher doesn't support it yet. ",
-                        "    If you have a burner/other account, please use it."]
-                    os.system('cls')
-                    utils.printBox(message)
-                elif (result.json()['error']['message'] == '"Invalid Username/Email or Password"'):
-                    message = ["[!] Invalid credentials. ", "    Please try again."]
-                    os.system('cls')
-                    utils.printBox(message)
-                    return False
-                else:
-                    logManager.logger("[!] Error: " + str(result.json()['error']['message']), "error")
-                    return False
+                if (result.json()['error']['message'] == '"Invalid Username/Email or Password"'):
+                    logManager.logger("[!] Invalid Username/Email or Password", "error")
+                    return None
             else:
-                raise InvalidResponse("\n[!] Invalid response from VRChat APIs\n[!] Status Code: "+ str(result.status_code)
-                 +"\n[!] Content: "+ str(result.content))
+                raise InvalidResponse("\n[!] Invalid response from VRChat APIs\n[!] Status Code: "f"{result.status_code}"" \n[!] Content: "f"{result.json()}")
         else:
             message = ["[!] The username you entered does not match any created account, ",
                         "    If you belive that username exits, please try again."]
@@ -255,10 +228,37 @@ def getAuthCookie(apiKey):
         print("[!] Error: " + str(e))
         return None
 
+def userLoginWith2FA(apiKey, authCookie):
+    try:
+        url = 'https://api.vrchat.cloud/api/1/auth/twofactorauth/totp/verify'
+        twoFactorCode = input("[i] Please insert your Two-Factor Code: ")
+        jsonData = {"code": ""f"{str(twoFactorCode)}"}
+        print(str(jsonData))
+        headers["Content-Type"] = "application/json"
+        headers["Cookie"] = "apiKey=" + apiKey +str(";")+ "auth=" + authCookie
+        result = requests.post(url, headers=headers, json=jsonData)
+        if result.status_code == 200:
+            logManager.logger("[i] Two-Factor Authentication successful!", "success")
+            print("Post result: "f"{result.json()}")
+            logManager.logger("[i] 2FA Auth Cookie: " + str(result.cookies['twoFactorAuth']), "info")
+            return result.cookies['twoFactorAuth']
+        elif result.status_code == 400:
+            logManager.logger("Invalid Two-Factor Code", "error")
+            return False
+        elif result.status_code == 401:
+            logManager.logger("Invalid API Key or Auth Cookie", "error")
+            return False
+        else:
+            raise InvalidResponse("\n[!] Invalid response from VRChat APIs\n[!] Status Code: "f"{result.status_code} \n[!] Content: "f"{result.json()}")
+    except requests.exceptions.RequestException as e:
+        print("[!] Error: " + str(e))
+        return None
+                    
+                    
 
 def getWorldNamebyID(worldID):
     print("\n[i] Checking world name...")
-    url = 'https://api.vrchat.cloud/api/1/worlds/{}'.format(worldID)
+    url = "https://api.vrchat.cloud/api/1/worlds/"f"{worldID}"
     try:
         result = requests.get(url, headers=headers, params={'apiKey': apiKey})
         if result.status_code == 200:
@@ -266,6 +266,26 @@ def getWorldNamebyID(worldID):
                 return result.json()['name']
             else:
                 logManager.logger("[!] World by ID: '"+ str(worldID) +"' DOES NOT exists\n[!] Exiting...", "error")
+                return False
+        else:
+            raise InvalidResponse("\n[!] Invalid response from VRChat APIs\n[!] Status Code: "+ str(result.status_code))
+    except requests.exceptions.RequestException as e:
+        print("[!] Error: " + str(e))
+        return None
+
+def checkIfAuthCookieIsValid(authCookie):
+    url = 'https://api.vrchat.cloud/api/1/auth'
+    try:
+        headers["Cookie"] = "auth=" + authCookie
+        result = requests.get(url, headers=headers)
+        if result.status_code == 200:
+            if(result.json()['ok']) == True:
+                logManager.logger("Auth Cookie is valid!", "success")
+            else:
+                logManager.logger("Auth Cookie is NOT valid!", "warning")
+        elif result.status_code == 401:
+            if(result.json()['error']['message'] != ''):
+                logManager.logger("Error from the API! \nError message: "f"{result.json()}", "error")
                 return False
         else:
             raise InvalidResponse("\n[!] Invalid response from VRChat APIs\n[!] Status Code: "+ str(result.status_code))

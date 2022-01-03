@@ -13,10 +13,10 @@ def logger(message, message_type):
 
     current_time = now.strftime("%H:%M:%S")
     if message_type == "error":
-        print("[{}] [ERROR]: {}".format(current_time, message))
+        print("["f"{current_time}] [ERROR]: "f"{message}")
     elif message_type == "warning":
-        print("[{}] [WARNING]: {}".format(current_time, message))
+        print("["f"{current_time}] [WARNING]: "f"{message}")
     elif message_type == "success":
-        print("[{}] [SUCCESS]: {}".format(current_time, message))
+        print("["f"{current_time}] [SUCCESS]: "f"{message}")
     elif message_type == "info":
-        print("[{}] [INFO]: {}".format(current_time, message))
+        print("["f"{current_time}] [INFO]: "f"{message}")

@@ -52,7 +52,7 @@ def displayWorldNames():
     "Kitchen Cooks!", "WDKS Horror Experience", "Test Pilots", "Movie and Chill", "Rest and Sleep"]
     n = 1
     for world in world_list:
-        print("{} - {}".format(n, world))
+        print(""f"{n} - "f"{world}")
         n += 1
 
     
@@ -63,7 +63,7 @@ def displayInstanceTypes():
     instance_list = ["0 - Public World", "1 - Friends+ World", "2 - Friends World", "3 - Private World (Invite)", "4 - Private World (Solo)"]
     logManager.logger("Only Public and Private (Solo) instances are supported at this time. \nThe other type of instances are not available at this time.", "warning")
     print("\n")
-    list(map(lambda x: print("{}".format(x)), instance_list))
+    list(map(lambda x: print(""f"{x}"), instance_list))
 
 
 def displayWorldRegions():
@@ -73,7 +73,7 @@ def displayWorldRegions():
     region_list = ["US West", "US East", "Europe", "Japan"]
     n = 1
     for world in region_list:
-        print("{} - {}".format(n, world))
+        print(""f"{n} - "f"{world}")
         n += 1
 
 
@@ -121,7 +121,8 @@ def lauchHomeWorld():
     Launch the home world
     """
     os.system("cls")
+    urlProtocol = "vrchat://launch"
     logManager.logger("Launching home world...", "info")
     print("\n")
-    os.system("start \"\" \"{}\"".format("vrchat://launch"))
+    os.system("start \"\" \""f"{urlProtocol}\"")
     print("\n")
