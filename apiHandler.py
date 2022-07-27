@@ -176,7 +176,6 @@ def getUserInfo(apiKey, username):
                                 message.append("    "+"Legend User")
                     """Printing the obtained user info"""            
                     utils.printBox(message)
-                    return message
                 else:
                     """If the response is empty or smh, it means that the user does not exist or something went wrong"""
                     raise InvalidResponse("\n[!] Invalid response from VRChat APIs\n[!] Status Code: "+ str(result.status_code))
@@ -274,7 +273,11 @@ def getAuthCookie(apiKey):
     """
     try:
         """Checking if the AuthCookie is already cached in the Cookies file"""
-        if(cookieFileHandler.retriveAuthCookieFromFile() != None and cookieFileHandler.retriveAuthCookieFromFile() == False):
+        if(cookieFileHandler.retriveAuthCookieFromFile() != None):
+            """If the AuthCookie is cached, print the result and return it"""
+            logManager.logger("Auth cookie found in Cookies file, avoiding API Request.", "info")
+            return cookieFileHandler.retriveAuthCookieFromFile()
+        else:
             """If the AuthCookie is not cached, send the request to the VRChat APIs"""
             logManager.logger("Auth cookie not found in Cookies file.\nSending API Request...", "info")
             url = 'https://api.vrchat.cloud/api/1/auth'
@@ -315,10 +318,6 @@ def getAuthCookie(apiKey):
             except requests.exceptions.RequestException as e:
                 logManager.logger(str(e), "error")
                 return None
-        else:
-            """If the AuthCookie is cached, print the result and return it"""
-            logManager.logger("Auth cookie found in Cookies file, avoiding API Request.", "info")
-            return cookieFileHandler.retriveAuthCookieFromFile()
     except FileNotFoundError:
         """If the Cookies file is not found, print the error message and return None"""
         logManager.logger("Something went wrong while loading the Cookies File!", "error")

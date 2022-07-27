@@ -48,8 +48,7 @@ def createCustomSession():
 
     """Elaborate the user's choices of the world instance type, world name and world region"""
     if(instanceType == "public"):
-        """"If the user choice is public, the userID of the Session Owner, 
-        Nonce  and Instance ID are not needed, using only the world name and world region"""
+        """"If the user choice is public, the userID of the Session Owner, Nonce  and Instance ID are not needed, using only the world name and world region"""
         """Creating the world URL"""
         worldURL = "vrchat://launch?id="f"{worldID}:"f"{random.randint(300, 1000)}""~region("f"{regionID})"
 
