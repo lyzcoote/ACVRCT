@@ -83,6 +83,7 @@ def displayDebugMenu():
     print("[i] 5 - Retrive Auth Cookie from JSON File")
     print("[i] 6 - Test Writing 2FA Auth Cookie to JSON File")
     print("[i] 7 - Test UUID Generator")
+    print("[i] 8 - Test WritingAPIKey to JSON File")
     print("[i] 0 - Exit \n")
     print("\n")
     while True:
@@ -118,6 +119,17 @@ def displayDebugMenu():
                 logManager.logger("Random UUID used for Nonce: "f"{generateRandomUUID()}", "info")
                 print("\n")
                 exit()
+            elif option == 8:
+                print("\n")
+                cookieHandler.writeAPIKey(APIHandler.getCachedAPIKey())
+                print("\n")
+                exit()
+            elif option == 9:
+                print("\n")
+                cookieHandler.showCookieData()
+                print("\n")
+                cookieHandler.listCookie()
+                print("\n")
             elif option == 0:
                 exit()
             else:
@@ -184,11 +196,6 @@ def launcherMenu():
                 logManager.logger("Goodbye!", "info")
                 print("\n")
                 exit()
-            elif option == 0:
-                os.system("cls")
-                displayDebugMenu()
-                os.system("cls")
-                launcherMenu()
             else:
                 print("\n")
                 logManager.logger("Invalid option! Please try again. \n", "error")
